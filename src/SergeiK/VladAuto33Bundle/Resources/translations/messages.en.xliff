@@ -22,6 +22,14 @@
                 <source>Парк автомобилей</source>
                 <target>Cars</target>
             </trans-unit>
+            <trans-unit id="6">
+                <source>Условия аренды</source>
+                <target>Rent conditions</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>Контакты</source>
+                <target>Contacts</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

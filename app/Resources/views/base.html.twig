@@ -136,17 +136,17 @@
                             {% if app.request.attributes.get('_route') == 'public_cars' %}
                                 class="selected"
                             {% endif %}
-                            ><a href="{{ path('public_cars')}}">{{ 'Парк автомобиле' | trans }}й</a></li>
+                            ><a href="{{ path('public_cars')}}">{{ 'Парк автомобилей' | trans }}</a></li>
                     <li
                             {% if app.request.attributes.get('_route') == 'public_conditions' %}
                                 class="selected"
                             {% endif %}
-                            ><a href="{{ path('public_conditions') }}">Условия аренды</a></li>
+                            ><a href="{{ path('public_conditions') }}">{{ 'Условия аренды' | trans }}</a></li>
                     <li
                             {% if app.request.attributes.get('_route') == 'public_contacts' %}
                                 class="selected"
                             {% endif %}
-                            ><a href="{{ path('public_contacts') }}">Контакты</a></li>
+                            ><a href="{{ path('public_contacts') }}">{{ 'Контакты' | trans }}</a></li>
                 </ul>
 				<!-- google plus -->
 					<div class="google_plus">
