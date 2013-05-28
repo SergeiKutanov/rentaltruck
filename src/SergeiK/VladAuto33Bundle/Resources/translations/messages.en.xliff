@@ -14,6 +14,10 @@
                 <source>Аренда автомобиля</source>
                 <target>Car rent</target>
             </trans-unit>
+            <trans-unit id="4">
+                <source>Трансфер</source>
+                <target>Transfer</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
