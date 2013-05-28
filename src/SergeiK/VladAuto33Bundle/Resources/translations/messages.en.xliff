@@ -10,6 +10,10 @@
                 <source>КОНТАКТЫ</source>
                 <target>CONTACTS</target>
             </trans-unit>
+            <trans-unit id="3">
+                <source>Аренда автомобиля</source>
+                <target>Car rent</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

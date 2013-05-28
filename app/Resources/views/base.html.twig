@@ -121,7 +121,7 @@
                             {% if app.request.attributes.get('_route') == 'public_index' %}
                                 class="selected"
                             {% endif %}
-                            ><a href="{{ path('public_index') }}">Аренда автомобиля</a></li>
+                            ><a href="{{ path('public_index') }}">{{ 'Аренда автомобиля' | trans}}</a></li>
                     <li
                             {% if app.request.attributes.get('_route') == 'public_with_driver' %}
                                 class="selected"
