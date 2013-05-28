@@ -1,0 +1,83 @@
+{% extends '::base.html.twig' %}
+
+{% block javascript %}
+   <script type="text/javascript">
+       $(document).ready(function(){
+           $('tr.car_selection > td > ul').delegate('li', 'click', function(){
+               $(this).find('input:radio').attr('checked', true);
+               $(this).parent().find('li').removeClass('selected');
+               $(this).addClass('selected');
+           });
+       });
+   </script>
+{% endblock %}
+
+{% block title %}
+        <title>Бронирование автомобиля</title>
+{% endblock %}
+
+{% block meta %}
+<meta name="keywords" content="забронировать автомобиль во Владимире">
+<meta name="description" content="Список автомобилей, которые вы можете взять напрокат в нашей компании">
+{% endblock %}
+
+{% block middle_bar %}
+    {% if form is defined %}
+        <h1>Бронирование автомобиля</h1>
+        <h3 style="{color: red}">Проверьте правильность введённых данных!</h3>
+        <form action="{{ path('public_booking') }}" method="POST" {{ form_enctype(form) }}>
+            <table>
+                <tbody>
+                <tr>
+                    <td>{{ form_label(form.name) }}{{ form_errors(form.name) }}</td>
+                    <td>{{ form_widget(form.name) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.start_date) }}{{ form_errors(form.start_date) }}</td>
+                    <td>{{ form_widget(form.start_date) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.over_date) }}{{ form_errors(form.over_date) }}</td>
+                    <td>{{ form_widget(form.over_date) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.phone) }}{{ form_errors(form.over_date) }}</td>
+                    <td>{{ form_widget(form.phone) }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form_label(form.email) }}{{ form_errors(form.email) }}</td>
+                    <td>{{ form_widget(form.email) }}</td>
+                </tr>
+                <tr>
+                    <td colspan="2"><h3>{{ form_label(form.car) }}{{ form_errors(form.car) }}</h3></td>
+                </tr>
+                <tr class="car_selection">
+                    <td colspan="2">
+                        <ul>
+                            {% for car in form.car %}
+                                <li>
+                                    <ul>
+                                        <li>{{ cars[loop.index - 1].name }}</li>
+                                        <li>{{ cars[loop.index - 1].year | date('Y') }} г.в.</li>
+                                        <li>КПП - {{ cars[loop.index - 1].getTransmissionString }}</li>
+                                        <li>От {{ cars[loop.index - 1].pricesWithoutDriver.threeDays }} руб.</li>
+                                    </ul>
+                                    <img src="{{ cars[loop.index - 1].getMainPhotoPath }}" />
+                                    {{ form_widget(car) }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Забронировать автомобиль"/></td>
+                </tr>
+                </tbody>
+            </table>
+            {{ form_rest(form) }}
+        </form>
+    {% else %}
+        <p>This is not how you are supposed to get on this page. Try to start again with our
+            <a href="{{ path('public_index') }}">main page</a>.</p>
+    {% endif %}
+{% endblock %}

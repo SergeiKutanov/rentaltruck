@@ -1,0 +1,231 @@
+{% extends '::base.html.twig' %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        //booking dates validation
+        function datesCompare(start, end)
+        {
+            var now = new Date();
+            if(start > now)
+            {
+                if((start - end) < 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        $(document).ready(function(){
+            var form = 'sergeik_vladauto33bundle_bookingtype_';
+            $('div.car_book').delegate('form', 'submit', function(){
+                var start = new Date(
+                        $('#' + form + 'start_date_year').val(),
+                        $('#' + form + 'start_date_month').val() - 1,
+                        $('#' + form + 'start_date_day').val(),
+                        0,0,0
+                );
+                var end = new Date(
+                        $('#' + form + 'over_date_year').val(),
+                        $('#' + form + 'over_date_month').val()-1,
+                        $('#' + form + 'over_date_day').val(),
+                        0,0,0
+                );
+                if(!datesCompare(start, end))
+                {
+                    alert('Проверьте даты бронирования!');
+                    return false;
+                }
+
+                var phone = $('#' + form + 'phone').val();
+                if(phone.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/g))
+                {
+                    return true;
+                }
+                else if(phone.match(/^\(?([0-9]{4})\)?[-. ]?([0-9]{2})[-. ]?([0-9]{2})[-. ]?([0-9]{2})$/g))
+                {
+                    return true;
+                }
+                else if(phone.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{2})[-. ]?([0-9]{2})$/g))
+                {
+                    return true;
+                }
+                else if(phone.match(/^\(?([0-9]{4})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{2})[-. ]?([0-9]{2})$/g))
+                {
+                    return true;
+                }
+                else
+                {
+                    alert('Введите номер телефона в одном из форматов: (XXX)XXX-XXXX | (XXXX)XX-XX-XX | (XXX)XXX-XX-XX | (XXXX)XXX-XX-XX');
+                }
+                return false;
+            });
+
+            //picture change timer
+            function changePicture()
+            {
+                var bg;
+                var fg;
+                var fgim;
+                var bgim;
+                if($("div.rover > div.bg").css("opacity") == 1)
+                {
+                    fg = $("div.rover > div.bg");
+                    bg = $("div.rover > div.fg");
+                }
+                else
+                {
+                    fg = $("div.rover > div.fg");
+                    bg = $("div.rover > div.bg");
+                }
+
+                var filename = $(fg).css("background-image");
+
+                if(filename.indexOf("land_1") > 0)
+                {
+                    fgim = 'url(../images/land_2.jpg)';
+                    bgim = 'url(../images/land_3.jpg)';
+                }
+                else if(filename.indexOf("land_2") > 0)
+                {
+                    fgim = 'url(../images/land_3.jpg)';
+                    bgim = 'url(../images/land_1.jpg)';
+                }
+                else if(filename.indexOf("land_3") > 0)
+                {
+                    fgim = 'url(../images/land_1.jpg)';
+                    bgim = 'url(../images/land_2.jpg)';
+                }
+
+                $(bg).css("background-image", bgim);
+
+                $(fg).animate({
+                    opacity: 0
+                }, 2000, function(){
+                    $(fg).css("background-image", bgim);
+                });
+                $(bg).animate({
+                    opacity: 1
+                }, 2000);
+            }
+
+            const pictureHoldTime = 10000;      //picture change interval
+
+            var interval = setInterval(function(){
+                changePicture()
+            }, pictureHoldTime);
+        });
+    </script>
+{% endblock %}
+
+{% block title %}
+    <title>Аренда автомобилей во Владимире.</title>
+	<!-- nWzxLLrCmiGOBjIZUGMStYQgphY -->
+{% endblock %}
+
+{% block meta %}
+    <meta name="keywords" content="аренда грузовых автомобилей,
+                                    аренда грузовиков,
+                                    аренда коммерческого транспорта">
+    <meta name="description" content="Аренда автомобилей во Владимире.
+    Аренда коммерческого транспорта без водителя.
+	У нас вы можете взять в аренду грузовой автомобиль любого класса по низким ценам.">
+{% endblock %}
+
+{% block middle_bar %}
+    <div class="rover">
+        <div class="bg"></div>
+        <div class="fg"></div>
+        <div class="car_book">
+            <div class="form">
+                <form action="{{ path('public_booking') }}" method="POST" {{ form_enctype(form) }}>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td>{{ form_label(form.name) }}{{ form_errors(form.name) }}</td>
+                            <td>{{ form_widget(form.name) }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form_label(form.start_date) }}{{ form_errors(form.start_date) }}</td>
+                            <td>{{ form_widget(form.start_date) }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form_label(form.over_date) }}{{ form_errors(form.over_date) }}</td>
+                            <td>{{ form_widget(form.over_date) }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form_label(form.phone) }}{{ form_errors(form.over_date) }}</td>
+                            <td>{{ form_widget(form.phone) }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ form_label(form.email) }}{{ form_errors(form.email) }}</td>
+                            <td>{{ form_widget(form.email) }}</td>
+                        </tr>
+                        <tr>
+                            <td class="confirm" colspan="2"><input type="submit" value="Забронировать автомобиль"/></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+            <div class="transp">
+
+            </div>
+
+        </div>
+    </div>
+<div class="">
+    <h1>«Авангард» аренда автомобилей во Владимире.</h1>
+	<h2>Аренда коммерческих автомобилей.</h2>
+	<img class="vwmv" src='../images/vw-multivan.jpg' alt='Аренда автомобиля во Владимире' title='Аренда автомобиля во Владимире'/>
+    <p class="body_text">В жизни есть немало событий, для которых нам просто необходимо транспортное 
+		средство, например, квартирный переезд, выходные с друзьями, отпуск с семьей и многое другое. Чтобы 
+		от этих событий остались приятные воспоминания, организуйте их правильно и грамотно. <strong>«Авангард» аренда 
+		автомобилей во Владимире</strong> поможет вам в этом. У нас вы можете осуществить любые ваши пожелания. 
+		Мы предлагаем вам возможность <strong>арендовать коммерческий автомобиль без водителя</strong> — вы сможете сами 
+		использовать автомобиль для своих нужд: перевезти крупную мебель, отправиться в путешествие или 
+		показать друзьям или партнерам красоты Золотого кольца. Если вам нужен <strong><a href="{{ path('public_cars')}}">коммерческий автомобиль в аренду</a></strong>, 
+		«Авангард» аренда автомобилей во Владимире — это ваш выбор.</p>
+    <p class="body_text"><strong>«Авангард» аренда автомобилей во Владимире</strong> предлагает широкий ряд грузовых и 
+		легковых коммерческих автомобилей. У нас представлены модели только зарубежных производителей, которые
+		 отличаются повышенной комфортностью и надежностью. Все автомобили предлагаются в отличном состоянии: 
+		чистый и аккуратный салон, полный бак бензина, не тронутый временем и частым использованием внешний вид. 
+		Позвольте нам помочь вам с вашими заботами и предложить вам удобное транспортное средство. Автомобили 
+		предлагаются на любой выбранный вами срок. Наши менеджеры помогут выбрать наиболее подходящее вам транспортное 
+		средство. Кроме личной встречи в салоне, вы можете воспользоваться нашим онлайн сервисом, либо договориться 
+		об аренде автомобиля по телефону.</p>
+	<img class="car_keys" src='../images/handing-over-car-keys.jpg' alt='Прокат автомобиля во Владимире' title='Прокат автомобиля во Владимире'/>    
+	<h2>Аренда автомобиля с водителем</h2>
+    <p class="body_text">Мы также можем предложить вам <strong>арендовать автомобиль с водителем</strong>. Все наши 
+		сотрудники имеют большой опыт вождения, отличаются пунктуальностью и высоким уровнем обслуживания. 
+		Вы можете смело доверить им самое ответственное дело. Даже при возникновении неблагоприятных 
+		обстоятельств вы можете быть уверены в их благоприятном исходе. Все автомобили предлагаются 
+		напрокат со страховыми полисами КАСКО и ОСАГО.</p>
+	<h2>Трансфер в аэропорт</h2>
+	<p class="body_text">«Авангард» аренда автомобилей во Владимире также предлагает услугу <strong>трансфера 
+		до аэропортов Москвы</strong>. Услуга предоставляется в любое удобное для вас время, стоимость не зависит 
+		от объема вашего багажа или количества человек. Вы можете быть уверены, что ваша семья или ваши 
+		деловые партнеры прибудут в аэропорт вовремя и с комфортом. </p>
+    <p class="body_text"><strong>«Авангард» аренда автомобилей во Владимире</strong>. Мы всегда рады оказать вам качественную услугу за приемлемые деньги.</p>
+</div>
+<div class="car_ad">
+    <table>
+        <tr>
+            {% for car in cars %}
+            <td>
+                <a href="{{path('public_show_car', {'id': car.id})}}">
+                    <div>
+                        <h3>{{ car.name }}</h3>
+                        <img src="{{ car.getMainPhotoPath }}" alt="аренда автомобиля {{car.name}}" title='Арендовать автомобиль {{car.name}}'/>
+                        <div>
+                            <h3>Цена</h3>
+                            <p class="price" id="price">от {{ car.pricesWithoutDriver.week }} руб. в сутки</p>
+                        </div>
+                    </div>
+                <a/>
+            </td>
+            {% endfor %}
+        </tr>
+    </table>
+</div>
+{% endblock %}

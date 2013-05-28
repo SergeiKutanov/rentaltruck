@@ -1,0 +1,36 @@
+public_index:
+    pattern: /
+    defaults: {_controller:SergeiKVladAuto33Bundle:Public:index}
+
+public_no_driver:
+    pattern: /nodriver
+    defaults: {_controller:SergeiKVladAuto33Bundle:Public:nodriver}
+
+public_with_driver:
+    pattern: /withdriver
+    defaults: {_controller:SergeiKVladAuto33Bundle:Public:withdriver}
+
+public_cars:
+    pattern: /cars
+    defaults: {_controller:SergeiKVladAuto33Bundle:Public:cars}
+
+public_procession:
+    pattern: /procession
+    defaults: {_controller:SergeiKVladAuto33Bundle:Public:procession}
+
+public_conditions:
+    pattern: /conditions
+    defaults: {_controller:SergeiKVladAuto33Bundle:Public:conditions}
+
+public_contacts:
+    pattern: /contacts
+    defaults: {_controller:SergeiKVladAuto33Bundle:Public:contacts}
+
+public_show_car:
+    pattern: /car/{id}
+    defaults: { _controller:SergeiKVladAuto33Bundle:Public:showCar }
+
+public_booking:
+    pattern: /booking
+    defaults: { _controller:SergeiKVladAuto33Bundle:Public:booking }
+    requirements: { _method: post }

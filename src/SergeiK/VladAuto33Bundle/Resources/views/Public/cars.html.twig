@@ -1,0 +1,49 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+        <title>Парк автомобилей напрокат во Владимире</title>
+{% endblock %}
+
+{% block meta %}
+<meta name="keywords" content="парк автомобилей напрокат во Владимире">
+<meta name="description" content="Список автомобилей, которые вы можете взять напрокат в нашей компании">
+{% endblock %}
+
+{% block middle_bar %}
+<h1>Прокат автомобилей во Владимире</h1>
+<h2>Наши автомобили</h2>
+<hr>
+<div class="vehicle_content">
+    {% for car in cars %}
+    <div class="vehicle">
+        <div>
+            <a href="{{path('public_show_car', {'id': car.id})}}">
+                <img src="{{ car.getMainPhotoPath }}" alt="{{ car.name }}"/>
+            </a>
+        </div>
+        <div class="desc">
+            <h2>{{ car.name }}</h2>
+			<ul class="features">
+				<li class="seats">{{car.seats}}</li>
+				{% if car.transmission == 1 %}
+				<li class="tm_m">Механика</li>
+				{% else %}
+				<li class="tm_a">Автомат</li>
+				{% endif %}
+				<li class="conditioner">
+				{% if car.additions.conditioner == 0 %}
+				Без кондиционера
+				{% elseif car.additions.conditioner == 1 %}
+				Кондиционер
+				{% elseif car.additions.conditioner > 1 %}
+				Климат-контроль
+				{% endif %}
+				</li>
+			</ul>
+            <h3>Цена</h3><hr>
+            <p class="price" id="price">от {{ car.pricesWithoutDriver.week }} руб. в сутки</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

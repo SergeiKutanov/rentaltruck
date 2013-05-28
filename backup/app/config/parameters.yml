@@ -1,0 +1,14 @@
+parameters:
+    database_driver: pdo_mysql
+    database_host: localhost
+    database_port: null
+    database_name: vladauto33
+    database_user: root
+    database_password: ubuntu
+    mailer_transport: smtp
+    mailer_host: localhost
+    mailer_user: null
+    mailer_password: null
+    locale: en
+    secret: f4908c7169516244314a71df6ac1ab4ebfdd0604
+    database_path: null

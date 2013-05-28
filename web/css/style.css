@@ -1,0 +1,770 @@
+body, html
+{
+    margin: 0px;
+    padding: 0px;
+    background-color: #F1F1F1;
+    height: 100%;
+    min-height: 100%;
+    font-family: verdana, arial, sans-serif;
+    font-size: 14px;
+    overflow: auto;
+}
+
+h1, h2, h3
+{
+    text-align: center;
+}
+
+#wrapper
+{
+    width: 100%;
+    height: 100%;
+}
+
+#header
+{
+    width: 100%;
+    height: 70px;
+    padding-top: 30px;
+    /*background: #adff2f;*/
+    background: url("../images/header.png") no-repeat scroll 0 30px;
+    border-bottom: 1px dotted #999999;
+}
+
+#logo
+{
+    float:left;
+    width: 350px;
+    height: 100%;
+    /*background: url("../images/logo.png") no-repeat;*/
+}
+
+a.logo
+{
+    display: block;
+    width: 350px;
+    height: 75px;
+}
+
+#header_background
+{
+    /*background: url("../images/header.png") no-repeat right;*/
+    width: 6px;
+    height: 100%;
+    float: right;
+}
+
+#nav
+{
+    width: 100%;
+    height: 30px;
+    margin: 0 auto;
+    background: #999999;
+    border-bottom: 1px dotted #333333;
+    position: fixed;
+    z-index: 10;
+}
+
+#nav ul
+{
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    width: 885px;
+}
+
+#nav ul li
+{
+    display: block;
+    height: 30px;
+    width: auto;
+    float: left;
+    padding: 0 5px;
+    line-height: 30px;
+    border-right: 1px dotted #333333;
+}
+
+#nav ul li:first-child
+{
+    border-left: 1px dotted #333333;
+}
+
+#nav ul li.selected
+{
+    background: #ffdd00;
+}
+
+#nav ul li:hover
+{
+    background: #ffdd00;
+}
+
+#nav ul li a
+{
+    text-decoration: none;
+    color: #000000;
+    display: block;
+    font-family: Trebuchet MS, Helvetica, sans-serif;
+    font-size: 14px;
+    font-style: italic;
+}
+
+#page
+{
+    width: 980px;
+    border-left: 1px solid #CECECE;
+    border-right: 1px solid #CECECE;
+    height: auto !important;
+    min-height: 100%;
+    position: relative;
+    margin: 0 auto;
+    background: #FFFFFF;
+    overflow: auto;
+    box-shadow: #444444 0px 0px 70px 0px;
+    padding-bottom: 50px;
+}
+
+#left_bar
+{
+    width: 200px;
+    min-height: 100%;
+    height: 500px;
+    position: relative;
+    background: grey;
+    float: left;
+}
+
+#middle_bar
+{
+    widht: 100%;
+    float: none;
+    min-height: 100%;
+    margin: 5px;
+    padding-bottom: 50px;
+}
+
+#middle_bar p.body_text
+{
+    text-align: justify;
+    text-indent: 40px;
+    padding: 5px;
+}
+
+#middle_bar p.body_text a
+{
+    color: black;
+}
+
+img.vwmv{
+	float:right;
+	width: 400px;
+}
+
+img.car_keys{
+	float: left;
+	margin: 10px;
+}
+
+#right_bar
+{
+    float: right;
+    width: 200px;
+    background: red;
+    height: 500px;
+}
+
+#footer
+{
+    width: 100%;
+    height: 50px;
+    background: #BABABA;
+    border-top: 1px dotted #999999;
+}
+
+#footer > p
+{
+    float: right;
+    margin: 15px;
+    font-style: italic;
+    font-family: Trebuchet;
+}
+
+#footer > div
+{
+    float: left;
+    background: url(../images/logo_bottom.png) no-repeat;
+    height: 100%;
+    width: 280px;
+    margin-left: 10px;
+}
+
+#footer > div > a
+{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#middle_bar > div.vehicle_content
+{
+    background-color: #CCCCCC;
+    border: 10px solid #EDEDED;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 2px 2px 1px 1px;
+    width: 944px;
+}
+
+div.vehicle
+{
+    width: 215px;
+    height: 400px;
+    float: left;
+    background-color: #FFFFFF;
+    border-left: 1px solid #CCCCCC;
+    border-bottom: 1px solid #CCCCCC;
+    display: inline;
+    padding: 10px;
+    position: relative;
+}
+
+div.vehicle > div
+{
+    width: 213px;
+    height: 165px;
+    overflow: hidden;
+	margin: 0 0 5px 0;
+	border: 1px #CCCCCC solid;
+}
+
+div.vehicle > div > a
+{
+	line-height: 165px;
+}
+
+div.vehicle > div > a > img
+{
+	vertical-align: middle;
+}
+
+div.vehicle > div.desc
+{
+    width: 203px;
+    height: 216px;
+    border: 1px solid #CCCCCC;
+    border-radius: 0 0 10px 10px;
+    padding: 5px;
+    background-color: #EDEDED;
+}
+
+div.vehicle > div.desc h2, div.vehicle > div.desc h3
+{
+    margin: 0;
+    text-align: center;
+	clear: both;
+}
+
+div.vehicle > div.desc h2
+{
+    height: 55px;
+    overflow: hidden;
+}
+
+p.price
+{
+    text-align: center;
+    display: block;
+    background: #ffdd00;
+    padding: 10px 5px;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px #444444;
+}
+
+table.conditions
+{
+    width: 100%;
+
+}
+
+table.conditions td
+{
+    width: 50%;
+    padding: 5px;
+}
+
+table.conditions tr:nth-child(odd)
+{
+    background: #CCCCCC;
+}
+
+#ymaps-map-id_1348200973817380919663
+{
+    border: 5px solid #CCCCCC;
+    border-radius: 3px;
+}
+
+#sergeik_vladauto33bundle_cartype_info
+{
+    width: 100%;
+    height: 200px;
+}
+
+#photo
+{
+    list-style: none;
+}
+
+#photo li
+{
+    display: inline-block;
+    float: left;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    height: auto;
+}
+
+div.form_bottom
+{
+    clear: both;
+}
+
+div.car_add > div.left, div.car_add > div.right
+{
+    width: 468px;
+    padding: 5px;
+}
+
+div.car_add > div.left
+{
+    float: left;
+}
+
+div.car_add > div.right
+{
+    float: right;
+    border-left: 1px dotted #CCCCCC;
+}
+
+div.car_add > div.left > table
+{
+    width: 100%;
+}
+
+div.car_add > div.left > table tr:nth-child(even)
+{
+    background: #CCCCCC;
+}
+
+div.car_add > div.left > table tr
+{
+    height: 30px;
+}
+
+div.car_add > div.left > table tr td
+{
+    padding-left: 5px;
+}
+
+div.car_add > div.left > table th
+{
+    background: #FFFFFF;
+    height: 50px;
+}
+
+div.car_add > div.left > table th h4
+{
+    border: 1px solid #CCCCCC;
+    padding: 5px 0;
+    border-radius: 5px;
+    background: #FFDD00;
+    box-shadow: inset 0 0 5px #444444;
+}
+
+div.car_add > div.right img.big_img
+{
+    width: 99%;
+    box-shadow: 5px -5px 5px 0 #CCCCCC;
+}
+
+div.car_add > div.right img.big_img:hover
+{
+    cursor: pointer;
+}
+
+div.car_add > div.right > div.big_photo
+{
+    border-bottom: 1px dotted #CCCCCC;
+}
+
+div.thumbs
+{
+    height: 100%;
+}
+
+div.thumbs ul li:first-child img
+{
+    opacity: 0.7;
+}
+
+div.thumbs ul
+{
+    list-style: none;
+    padding: 0;
+    margin-top: 5px;
+    line-height: 0;
+}
+
+div.thumbs ul li
+{
+    display: inline-block;
+    float: left;
+}
+
+div.thumbs img
+{
+    width: 99px;
+}
+
+div.thumbs img:hover
+{
+    cursor: pointer;
+}
+
+div.curtain
+{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background: #000000;
+    z-index: 90;
+    opacity: 0;
+    display: none;
+}
+
+div.gallery_pic
+{
+    position: absolute;
+    z-index: 91;
+    /*left: 50%; */
+    top: 10%;
+    width: auto;
+    opacity: 0;
+}
+
+div.gallery_pic > img
+{
+    position: relative;
+    /*left: -50%;*/
+    border: 3px solid #CCCCCC;
+    box-shadow: 0 0 10px #CCCCCC;
+}
+
+div.page_bottom_gradient
+{
+    width: 100%;
+    height: 50px;
+    background: -moz-linear-gradient(top, #FFFFFF, #CCCCCC);
+    /* Chrome 1-9, Safari 4-5 */
+    background: -webkit-gradient(linear, top, bottom,
+    color-stop(0%,#FFFFFF), color-stop(100%,#CCCCCC));
+    /* Chrome 10+, Safari 5.1+ */
+    background: -webkit-linear-gradient(top, #ffffff, #CCCCCC);
+    background: -o-linear-gradient(top, #ffffff, #cccccc); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #ffffff, #cccccc); /* IE10 */
+    background: linear-gradient(top, #ffffff, #cccccc); /* CSS3 */
+    position: absolute;
+    bottom: 0;
+}
+
+/*----------------------------car booking css section*/
+div.car_book
+{
+    float: right;
+    padding: 10px;
+    border-radius: 5px;
+    position: relative;
+    width: 420px;
+    height: 170px;
+}
+
+div.car_book > div.transp
+{
+    background: none repeat scroll 0 0 #F5F5F5;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 10px #CCCCCC;
+    width: 420px;
+    height: 175px;
+    opacity: 0.4;
+}
+
+div.car_book td.confirm
+{
+    text-align: center;
+}
+
+div.car_book > div.form
+{
+    position: absolute;
+    z-index: 2;
+}
+
+tr.car_selection ul
+{
+    list-style: none;
+    overflow: auto;
+}
+
+tr.car_selection ul li
+{
+    overflow: auto;
+}
+
+tr.car_selection > td > ul > li
+{
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+}
+
+tr.car_selection > td > ul > li.selected
+{
+    background: #F1F1F1;
+}
+
+tr.car_selection > td > ul > li:hover
+{
+    background: #F1F1F1;
+    cursor: pointer;
+}
+
+tr.car_selection > td > ul > li > ul
+{
+    float: left;
+    margin-right: 10px;
+    padding-left: 0px;
+}
+
+tr.car_selection > td > ul > li > img
+{
+    float: left;
+}
+
+tr.car_selection > td > ul > li > input
+{
+    line-height: 10px;
+}
+/*----------------------------------------------------*/
+
+/* cotacts fold start */
+div.contacts_fold
+{
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    background: #FFFFFF;
+    z-index: 5;
+    top: 20%;
+    padding-left: 40px;
+    left: -210px;
+    border: 1px solid #CCCCCC;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    box-shadow: #444444 20px 20px 20px -5px;
+}
+
+div.contacts_fold > div.clickable
+{
+    height: 100%;
+    width: 30px;
+    background: #ffdd00;
+    float: right;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+div.contacts_fold > div.clickable > p
+{
+    word-wrap: break-word;
+    font-style: italic;
+    font-size: 14px;
+    font-family: Trebuchet;
+    width: 14px;
+    margin-left: 7px;
+}
+
+div.contacts_fold > div.clickable:hover
+{
+    cursor: pointer;
+}
+
+div.contacts_fold > div.contacts_info
+{
+    width: 170px;
+    overflow: hidden;
+    float: left;
+    font-size: 12px;
+}
+
+div.contacts_fold ul
+{
+    list-style: none;
+    margin-left: 5px;
+    padding-left: 0;
+}
+/* contacts fold end */
+
+p.asterisk
+{
+    font-size: 10px;
+}
+
+td.add_info
+{
+    background: #FFFFFF;
+}
+
+/*land rover css part starts*/
+div.rover
+{
+    height: 350px;
+    top: -5px;
+    overflow: auto;
+    left: -5px;
+    width: 980px;
+    position: relative;
+}
+
+div.rover > div.bg
+{
+    position: absolute;
+    width: 980px;
+    height: 350px;
+    background: url("../images/land_1.jpg") repeat scroll 0 0 transparent;
+    opacity: 1;
+}
+
+div.rover > div.fg
+{
+    position: absolute;
+    width: 980px;
+    height: 350px;
+    background: url("../images/land_2.jpg") repeat scroll 0 0 transparent;
+    opacity: 0;
+}
+/*land rover css part ends*/
+
+/*car ad start*/
+div.car_ad > table > tbody > tr > td > a > div
+{
+    display: block;
+    width: 200px;
+    height: 300px;
+    margin: 5px;
+}
+
+div.car_ad a
+{
+    text-decoration: none;
+    color: #000000;
+}
+
+div.car_ad > table > tbody > tr > td > a > div > img
+{
+    height: 100px;
+    display: block;
+    margin: 0 auto;
+}
+
+div.car_ad div h3
+{
+    height: 30px;
+}
+
+div.car_ad > table
+{
+    margin: 0 auto;
+}
+/* car ad end */
+
+div.left p {
+    text-align: justify;
+}
+
+div.google_plus{
+	float: right;
+	margin-top: 5px;
+	width:	100px;
+}
+
+ul.features{
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.features li{
+	padding: 10px 18px 10px 32px;
+	float: left;
+	height: 17px;
+}
+
+li.seats{
+	background: url('../images/el_features_large.png') no-repeat;
+	background-position: 0 0;
+}
+
+li.tm_icon{
+	background: url('../images/el_features_large.png') no-repeat;
+	background-position: 0 -360px;
+}
+
+li.tm_m{
+	background: url('../images/el_features_large.png') no-repeat;
+	background-position: 0 -240px;
+}
+
+li.tm_a{
+	background: url('../images/el_features_large.png') no-repeat;
+	background-position: 0 -300px;
+}
+
+li.conditioner{
+	background: url('../images/el_features_large.png') no-repeat;
+	background-position: 0 -175px;
+}
+
+div.rambler{
+	position: relative;
+	top: -82px;
+}
+
+div.vk_like{
+	float: right;
+	margin-top: 4px;
+}
+
+.float_right_img{
+	float: right;
+	margin: 5px;
+}
+
+.float_left_img{
+	float: left;
+	margin: 5px;
+}
+
+#map-canvas{
+	height: 578px;
+}
+
+.lng_img{
+	float:left;
+	margin: 8px 3px;
+	width: 20px;
+}

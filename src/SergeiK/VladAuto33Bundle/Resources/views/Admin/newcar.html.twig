@@ -1,0 +1,259 @@
+{% extends '::admin.html.twig' %}
+
+{% block javascript %}
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        var form_name = "#sergeik_vladauto33bundle_cartype_";
+
+        var pr = $('#photo').data('prototype');
+        pr = $(pr).append("<br /><a href='#' class='rm_photo'>Удалить</a>").html();
+        var index = $('#photo').children().length;
+
+        //a litle fork to pass form validation for car's manufacture date
+        $(form_name + 'year_month').val('1');
+        $(form_name + 'year_day').val('1');
+        // fork ends------------------------------------------------------
+
+        $(document).delegate('a.add_photo', 'click', function(event){
+            event.preventDefault();
+            var new_photo = pr.replace(/__name__/g, index);
+            var li = $('<li>' +  new_photo + '</li>');
+            $('#photo').append(li);
+            index++;
+            //$(this).parent().find('input').click();
+            $('#photo').find('li:last').find('input:checkbox').attr('checked', '0');
+            $('#photo').find('li:last').find('input').click();
+        });
+
+        $(document).delegate('a.rm_photo', 'click', function(event){
+            event.preventDefault();
+            $(this).parent().remove();
+        });
+
+        /*
+        check if there is only one main photo
+         */
+        $('form').submit(function(){
+            var ch = 0;
+            $('#photo').find('input:checkbox').each(function(){
+                if($(this).attr('checked') == 'checked')
+                {
+                    ch++;
+                }
+            });
+            if(ch == 1)
+            {
+                return true;
+            }
+
+            if(ch == 0)
+            {
+                alert('Установите главное фото!');
+                return false;
+            }
+
+            if(ch > 1)
+            {
+                alert('Главное фото должно быть только одно!');
+                return false;
+            }
+            return false;
+        });
+    })
+</script>
+{% endblock %}
+
+{% block middle_bar %}
+    {% if id is defined %}
+    <h1>Редактирование {{ car.name }}</h1>
+    <form action="{{ path('admin_save_car', {'id': id}) }}" method="POST" {{ form_enctype(form) }}>
+    {% else %}
+    <h1>Новый автомобиль</h1>
+    <form action="{{path('admin_create_new_car')}}" method="POST" {{ form_enctype(form) }}>
+    {% endif %}
+        {{ form_errors(form) }}
+        <table>
+            <tbody>
+            <tr>
+                <td>{{ form_label(form.name) }}</td>
+                <td>{{ form_errors(form.name) }}{{ form_widget(form.name) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.year) }}{{ form_errors(form.year) }}</td>
+                <td>{{ form_widget(form.year.year)}}
+                    {{ form_widget(form.year.month, { 'attr': { 'style': 'display:none' } }) }}
+                    {{ form_widget(form.year.day, { 'attr': { 'style': 'display:none' } }) }}
+                </td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.transmission) }}{{ form_errors(form.transmission) }}</td>
+                <td>{{ form_widget(form.transmission) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.consumption) }}{{ form_errors(form.consumption) }}</td>
+                <td>{{ form_widget(form.consumption) }} л/100 км</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.seats) }}{{ form_errors(form.seats) }}</td>
+                <td>{{ form_widget(form.seats) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.height) }}{{ form_errors(form.height) }}</td>
+                <td>{{ form_widget(form.height) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.width) }}{{ form_errors(form.width) }}</td>
+                <td>{{ form_widget(form.width) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.depth) }}{{ form_errors(form.depth) }}</td>
+                <td>{{ form_widget(form.depth) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.capacity) }}{{ form_errors(form.capacity) }}</td>
+                <td>{{ form_widget(form.capacity) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.deposit) }}{{ form_errors(form.deposit) }}</td>
+                <td>{{ form_widget(form.deposit) }}</td>
+            </tr>
+            <tr>
+                <td colspan="2"><b>{{ form_label(form.additions) }}</b>{{ form_errors(form.additions) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.additions.abs) }}{{ form_errors(form.additions.abs) }}</td>
+                <td>{{ form_widget(form.additions.abs) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.additions.antislip) }}{{ form_errors(form.additions.antislip) }}</td>
+                <td>{{ form_widget(form.additions.antislip) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.additions.lightsensor) }}{{ form_errors(form.additions.lightsensor) }}</td>
+                <td>{{ form_widget(form.additions.lightsensor) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.additions.rainsensor) }}{{ form_errors(form.additions.rainsensor) }}</td>
+                <td>{{ form_widget(form.additions.rainsensor) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.additions.power_steering) }}{{ form_errors(form.additions.power_steering) }}</td>
+                <td>{{ form_widget(form.additions.power_steering) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.additions.conditioner) }}{{ form_errors(form.additions.conditioner) }}</td>
+                <td>{{ form_widget(form.additions.conditioner) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.additions.warmseats) }}{{ form_errors(form.additions.warmseats) }}</td>
+                <td>{{ form_widget(form.additions.warmseats) }}</td>
+            </tr>
+            <!--
+                Prices for car rent without driver
+            -->
+            <tr>
+                <td colspan="2"><b>{{ form_label(form.pricesWithoutDriver) }}</b>{{ form_errors(form.pricesWithoutDriver) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.pricesWithoutDriver.day) }}{{ form_errors(form.pricesWithoutDriver.day) }}</td>
+                <td>{{ form_widget(form.pricesWithoutDriver.day) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.pricesWithoutDriver.threeDays) }}{{ form_errors(form.pricesWithoutDriver.threeDays) }}</td>
+                <td>{{ form_widget(form.pricesWithoutDriver.threeDays) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.pricesWithoutDriver.week) }}{{ form_errors(form.pricesWithoutDriver.week) }}</td>
+                <td>{{ form_widget(form.pricesWithoutDriver.week) }}</td>
+            </tr>
+            <!--
+                Prices for car rent with driver
+            -->
+            <tr>
+                <td colspan="2"><b>{{ form_label(form.pricesWithDriver) }}</b>{{ form_errors(form.pricesWithDriver) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.pricesWithDriver.day) }}{{ form_errors(form.pricesWithDriver.day) }}</td>
+                <td>{{ form_widget(form.pricesWithDriver.day) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.pricesWithDriver.threeDays) }}{{ form_errors(form.pricesWithDriver.threeDays) }}</td>
+                <td>{{ form_widget(form.pricesWithDriver.threeDays) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.pricesWithDriver.week) }}{{ form_errors(form.pricesWithDriver.week) }}</td>
+                <td>{{ form_widget(form.pricesWithDriver.week) }}</td>
+            </tr>
+            <!--
+                Price for wedding car rental
+            -->
+            <tr>
+                <td colspan="2"><b>{{ form_label(form.pricesForWedding) }}</b>{{ form_errors(form.pricesForWedding) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.pricesForWedding.hour) }}{{ form_errors(form.pricesForWedding.hour) }}</td>
+                <td>{{ form_widget(form.pricesForWedding.hour) }}</td>
+            </tr>
+            <tr>
+                <td colspan="2"><b>{{ form_label(form.info) }}</b>{{ form_errors(form.info) }}</td>
+            </tr>
+            <tr>
+                <td colspan="2">{{ form_widget(form.info) }}</td>
+            </tr>
+            <tr>
+                <td><b>{{ form_label(form.published) }}</b>{{ form_errors(form.published) }}</td>
+                <td>{{ form_widget(form.published) }}</td>
+            </tr>
+            </tbody>
+        </table>
+            <!--
+               Photo
+            -->
+        <hr>
+        <h2>{{ form_label(form.photos) }}</h2>{{ form_errors(form.photos) }}
+        <a href="#" class="add_photo">Добавить фото</a><br />
+        <ul id="photo" data-prototype="{{ form_widget(form.photos.get('prototype')) | e }}">
+            {% for photo in form.photos %}
+                <li>
+                    <img src="/uploads/images/cars/thumbs/{{car.photos[loop.index-1].path}}"/>
+                    <br />
+                    {{ form_row(photo.main) }}
+                    {{ form_widget(photo, { 'attr': {'style': 'display:none' } }) }}
+                    <br />
+                    <a class="rm_photo" href="#">Удалить</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <div class="form_bottom">
+            {{ form_rest(form) }}
+            <input type="submit" value="Сохранить">
+        </div>
+    </form>
+    {% if id is defined %}
+        <form action="{{ path('admin_delete_car', {'id': id}) }}" method="GET">
+            {{ form_widget(delete_form) }}
+            <input type="submit" value="Удалить" />
+        </form>
+        {% if bookings is defined %}
+            <table style="width: 100%;">
+                <tbody>
+                    <tr>
+                        <td colspan="5">
+                            <h3>Список бронирований</h3>
+                        </td>
+                    </tr>
+                    {% for booking in bookings %}
+                        <tr>
+                            <td><a href="{{ path('admin_edit_booking', {'id': booking.id}) }}">Редактировать</a></td>
+                            <td>{{ booking.name }}</td>
+                            <td>{{ booking.startDate | date('Y-m-d') }}</td>
+                            <td>{{ booking.overDate | date('Y-m-d') }}</td>
+                            <td>{{ booking.phone }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+    {% endif %}
+{% endblock %}

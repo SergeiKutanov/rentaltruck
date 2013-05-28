@@ -1,0 +1,106 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+        <title>Парк автомобилей напрокат во Владимире</title>
+{% endblock %}
+
+{% block meta %}
+<meta name="keywords" content="парк автомобилей напрокат во Владимире">
+<meta name="description" content="Список автомобилей, которые вы можете взять напрокат в нашей компании">
+{% endblock %}
+
+{% block middle_bar %}
+<h1>Прокат автомобилей во Владимире</h1>
+<h2>Наши автомобили</h2>
+<hr>
+<div class="vehicle_content">
+    <div class="vehicle">
+        <div>
+            <img src="{{ asset('/images/cars/vaz_priora_2008.JPG') }}" alt="ваз приора в аренду"/>
+        </div>
+        <div class="desc">
+            <h2>ВАЗ Приора</h2>
+            <hr>
+            <h3>Цена</h3>
+            <p class="price">от 700 руб. в сутки</p>
+        </div>
+    </div>
+    <div class="vehicle">
+        <div>
+            <img src="{{ asset('/images/cars/ford_focus_2004.JPG') }}" alt="форд фокус в аренду"/>
+        </div>
+        <div class="desc">
+            <h2>Ford Focus</h2>
+            <hr>
+            <h3>Цена</h3>
+            <p class="price">от 900 руб. в сутки</p>
+        </div>
+    </div>
+    <div class="vehicle">
+        <div>
+            <img src="{{ asset('/images/cars/hyundai_elantra_2008.JPG') }}" alt="hyundai elantra в аренду"/>
+        </div>
+        <div class="desc">
+            <h2>Hyundai Elantra</h2>
+            <hr>
+            <h3>Цена</h3>
+            <p class="price">от 1000 руб. в сутки</p>
+        </div>
+    </div>
+    <div class="vehicle">
+        <div>
+            <img src="{{ asset('/images/cars/lexus_rx330_2003.JPG') }}" alt="lexus rx330 в аренду"/>
+        </div>
+        <div class="desc">
+            <h2>Lexus RX330</h2>
+            <hr>
+            <h3>Цена</h3>
+            <p class="price">от 1500 руб. в сутки</p>
+        </div>
+    </div>
+    <div class="vehicle">
+        <div>
+            <img src="{{ asset('/images/cars/vw_passat_2010.JPG') }}" alt="volkswagen passat в аренду"/>
+        </div>
+        <div class="desc">
+            <h2>Volkswagen Passat</h2>
+            <hr>
+            <h3>Цена</h3>
+            <p class="price">от 1300 руб. в сутки</p>
+        </div>
+    </div>
+    <div class="vehicle">
+        <div>
+            <img src="{{ asset('/images/cars/renault_scenic_2008.JPG') }}" alt="renault scenic в аренду"/>
+        </div>
+        <div class="desc">
+            <h2>Renault Scenic Diesel</h2>
+            <hr>
+            <h3>Цена</h3>
+            <p class="price">от 1200 руб. в сутки</p>
+        </div>
+    </div>
+    <div class="vehicle">
+        <div>
+            <img src="{{ asset('/images/cars/vw_multivan_mt_2008.JPG') }}" alt="volkswagen multivan в аренду"/>
+        </div>
+        <div class="desc">
+            <h2>Volkswagen Multivan</h2>
+            <hr>
+            <h3>Цена</h3>
+            <p class="price">от 2000 руб. в сутки</p>
+        </div>
+    </div>
+    <div class="vehicle">
+        <div>
+            <img src="{{ asset('/images/cars/vw_multivan_at_2008.JPG') }}" alt="volkswagen multivan в аренду"/>
+        </div>
+        <div class="desc">
+            <h2>Volkswagen Multivan</h2>
+            <hr>
+            <h3>Цена</h3>
+            <p class="price">от 2500 руб. в сутки</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

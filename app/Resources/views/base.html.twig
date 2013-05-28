@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru-ru" xml:lang="ru-ru">
+    <head>
+        {% set right_bar = 'false' %}
+        {% set left_bar = 'false' %}
+	{% block google_adsense %}
+	<script type="text/javascript">
+
+  	var _gaq = _gaq || [];
+  	_gaq.push(['_setAccount', 'UA-39457213-1']);
+  	_gaq.push(['_trackPageview']);
+
+  	(function() {
+    	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  	})();
+
+	</script>
+	{% endblock %}
+        {% block title %}{% endblock %}
+        <meta content="text/html; charset=utf-8" http-equiv="content-type">
+        <meta content="index, follow" name="robots">
+        <meta content="ru-RU" name="language">
+        {% block meta %}{% endblock %}
+        {% block css %}<link href="{{ asset('/css/style.css') }}" type="text/css" rel="stylesheet">{% endblock %}
+        <script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('div.contacts_fold').delegate('div.clickable', 'click', function(){
+                    if($(this).parent().css('left') == '-210px')
+                    {
+                        $(this).parent().animate({
+                            left: -40
+                        }, 1000);
+                    }
+                    else
+                    {
+                        $(this).parent().animate({
+                            left: -210
+                        }, 1000);
+                    }
+
+                });
+            });
+        </script>
+        {% block javascript %}{% endblock %}
+		<!-- Put this script tag to the <head> of your page -->
+		<script type="text/javascript" src="//vk.com/js/api/openapi.js?84"></script>
+
+		<script type="text/javascript">
+		  VK.init({apiId: 3515481, onlyWidgets: true});
+		</script>
+		<meta name='wmail-verification' content='631e4e9d80ebb014' />
+
+		<!-- Yandex.Metrika counter -->
+		<script type="text/javascript">
+		(function (d, w, c) {
+			(w[c] = w[c] || []).push(function() {
+				try {
+				    w.yaCounter20729230 = new Ya.Metrika({id:20729230,
+				            clickmap:true,
+				            trackLinks:true,
+				            accurateTrackBounce:true});
+				} catch(e) { }
+			});
+
+			var n = d.getElementsByTagName("script")[0],
+				s = d.createElement("script"),
+				f = function () { n.parentNode.insertBefore(s, n); };
+			s.type = "text/javascript";
+			s.async = true;
+			s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+			if (w.opera == "[object Opera]") {
+				d.addEventListener("DOMContentLoaded", f, false);
+			} else { f(); }
+		})(document, window, "yandex_metrika_callbacks");
+		</script>
+		<noscript><div><img src="//mc.yandex.ru/watch/20729230" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+		<!-- /Yandex.Metrika counter -->
+
+    </head>
+    <body>
+        <!--
+        for gallery-like pictures
+        -->
+        <div class="curtain"></div>
+        <div class="gallery_pic"></div>
+
+        <!--contacts folding div-->
+        <div class="contacts_fold">
+            <div class="contacts_info">
+                <h3>Телефоны</h3>
+                <ul>
+                    <li>8(4922)37-09-99</li>
+                    <li>8(904)030-74-41</li>
+                </ul>
+                <h3>Email</h3>
+                <ul>
+                    <li>avangardauto33@gmail.com</li>
+                </ul>
+                <h3>ICQ</h3>
+                <ul>
+                    <li>256449696</li>
+                </ul>
+                <h3>Адрес</h3>
+                <p>
+                    г. Владимир,<br /> ул. Лакина, 4г
+                </p>
+            </div>
+            <div class="clickable"><p>{{'CONTACTS'|trans}}</p></div>
+        </div>
+        <!------------------------>
+        <div id="wrapper">
+            <div id="nav">
+				<a href="{{ path(app.request.attributes.get('_route'), {'_locale' : 'ru'}) }}"><img class="lng_img" src="../images/rus.gif" alt="русская версия" title="русская версия"/></a>
+				<a href="{{ path(app.request.attributes.get('_route'), {'_locale' : 'en'}) }}"><img class="lng_img" src="../images/uk.gif" alt="english version" title="english version"/></a>
+                <ul>
+                    <li
+                            {% if app.request.attributes.get('_route') == 'public_index' %}
+                                class="selected"
+                            {% endif %}
+                            ><a href="{{ path('public_index') }}">Аренда автомобиля</a></li>
+                    <li
+                            {% if app.request.attributes.get('_route') == 'public_with_driver' %}
+                                class="selected"
+                            {% endif %}
+                            ><a href="{{ path('public_with_driver') }}">Трансфер</a></li>
+                    <li
+                            {#{% if app.request.attributes.get('_route') == 'public_procession' %}#}
+                                {#class="selected"#}
+                            {#{% endif %}#}
+                            {#><a href="{{ path('public_procession') }}">Автомобили на свадьбу</a></li>#}
+                    <li
+                            {% if app.request.attributes.get('_route') == 'public_cars' %}
+                                class="selected"
+                            {% endif %}
+                            ><a href="{{ path('public_cars')}}">Парк автомобилей</a></li>
+                    <li
+                            {% if app.request.attributes.get('_route') == 'public_conditions' %}
+                                class="selected"
+                            {% endif %}
+                            ><a href="{{ path('public_conditions') }}">Условия аренды</a></li>
+                    <li
+                            {% if app.request.attributes.get('_route') == 'public_contacts' %}
+                                class="selected"
+                            {% endif %}
+                            ><a href="{{ path('public_contacts') }}">Контакты</a></li>
+                </ul>
+				<!-- google plus -->
+					<div class="google_plus">
+						<!-- Place this tag in your head or just before your close body tag. -->
+						<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+
+						<!-- Place this tag where you want the +1 button to render. -->
+						<div class="g-plusone" data-size="medium" data-annotation="none"></div>
+					</div>
+					
+					<!-- Put this div tag to the place, where the Like block will be -->
+					<div class="vk_like">
+						<div id="vk_like"></div>
+					</div>
+					<script type="text/javascript">
+					VK.Widgets.Like("vk_like", {type: "mini"});
+					</script>
+            </div>
+
+
+            <div id="page">
+                <div id="header">
+                    <div id="logo"><a class="logo" href="{{ path('public_index') }}"></a></div>
+                    <div id="header_background"></div>
+                </div>
+                {% if left_bar == 'true'%}
+                    <div id="left_bar">
+                    </div>
+                {% endif %}
+                    <div id="middle_bar"
+                        {% if (left_bar == 'true') and (right_bar == 'true') %}
+                           style="width:580px; float:left;"
+                        {% else %}
+                           {% if (left_bar == 'true') or (right_bar == 'true') %}
+                               style="width:780px; float: left;"
+                           {% endif %}
+                        {%endif%}>
+                        {% block middle_bar %}
+
+                        {% endblock %}
+                    </div>
+                {% if right_bar == 'true' %}
+                    <div id="right_bar">
+
+                    </div>
+                {% endif %}
+                <div class="page_bottom_gradient"></div>
+            </div>
+            <div id="footer">
+                <div><a href="{{ path('public_index') }}"></a></div>
+                <p>Забронировать автомобиль вы можете по телефону: 8(4922)37-09-99</p>
+            </div>
+        </div>
+			<!-- begin of Top100 code -->
+
+			<script id="top100Counter" type="text/javascript" src="http://counter.rambler.ru/top100.jcn?2875102"></script>
+			<noscript>
+			<a href="http://top100.rambler.ru/navi/2875102/">
+			<img src="http://counter.rambler.ru/top100.cnt?2875102" alt="Rambler's Top100" border="0" />
+			</a>
+
+			</noscript>
+			<!-- end of Top100 code -->
+    </body>
+</html>

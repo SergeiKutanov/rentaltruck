@@ -1,0 +1,49 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+        <title>Подтверждение бронирования автомобиля</title>
+{% endblock %}
+
+{% block meta %}
+<meta name="keywords" content="забронировать автомобиль во Владимире">
+<meta name="description" content="Список автомобилей, которые вы можете взять напрокат в нашей компании">
+{% endblock %}
+
+{% block middle_bar %}
+    <h1>Подтверждение бронирования автомобиля</h1>
+    <p>Поздравляем, вы забронировали прокат автомобиля в нашей фирме. В ближайшее время с Вами свяжется наш менеджер.</p>
+    <h2>Подробности</h2>
+    <table>
+        <tbody>
+        <tr>
+            <td>Имя:</td>
+            <td>{{ booking.name }}</td>
+        </tr>
+        <tr>
+            <td>Дата выдачи автомобиля: </td>
+            <td>{{ booking.startDate | date('Y-m-d') }}</td>
+        </tr>
+        <tr>
+            <td>Дата возврата автомобиля: </td>
+            <td>{{ booking.overDate | date('Y-m-d') }}</td>
+        </tr>
+        <tr>
+            <td colspan="2"><h3>Автомобиль</h3></td>
+        </tr>
+        <tr>
+            <td colspan="2"><b>{{ booking.car.name }}</b></td>
+        </tr>
+        <tr>
+            <td>Год выпуска: </td>
+            <td>{{ booking.car.year | date('Y') }}</td>
+        </tr>
+        <tr>
+            <td>Коробка передач: </td>
+            <td>{{ booking.car.getTransmissionString }}</td>
+        </tr>
+        <tr>
+            <td colspan="2"><img src="{{ booking.car.getMainPhotoPath }}" alt="{{ booking.car.name }}"/></td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+<title>Прокат автомобилей во Владимире - Контакты</title>
+{% endblock %}
+
+{% block meta %}
+<meta name="keywords" content="прокат автомобилей во владимире, контакты">
+<meta name="description" content="Прокат автомобилей во Владимире. Наши контакты.">
+{% endblock %}
+
+{% block javascript %}
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=ru"></script>
+<script type="text/javascript">
+	var map;
+	function initialize() {
+	  var myLatlng = new google.maps.LatLng(56.147, 40.359);
+	  var myCenter = new google.maps.LatLng(56.143, 40.406);
+	  var mapOptions = {
+		zoom: 12,
+		center: myCenter,
+		disableDefaultUI: false,
+		panControl: false,
+		zoomControl: true,
+		scaleControle: true,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	  };
+		
+	  map = new google.maps.Map(document.getElementById('map-canvas'),
+		  mapOptions);
+
+		var trafficLayer = new google.maps.TrafficLayer();
+  		trafficLayer.setMap(map);
+
+		var contentString = "<h3>Автопрокат во Владимире</h3>" +
+			"<h4>Авангард</h4>"+
+			"<div>тел. (4922)37-09-99</div>";
+
+		var infowindow = new google.maps.InfoWindow({
+			content: contentString
+		});
+
+	  var marker = new google.maps.Marker({
+			position: myLatlng,
+			map: map,
+			animation: google.maps.Animation.DROP,
+			title: "Прокат автомобилей во Владимире"	
+		});
+
+		google.maps.event.addListener(marker, "click", function(){
+			infowindow.open(map, marker);
+		});
+	}
+
+	google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+{% endblock %}
+
+{% block middle_bar %}
+<h1>Наши контакты</h1>
+<table class="conditions" cellspacing="0">
+    <tbody>
+    <tr>
+        <td>Телефоны</td>
+        <td>37-09-99<br />
+            8(904)030-74-41</td>
+    </tr>
+    <tr>
+        <td>E-mail</td>
+        <td>avangardauto33@gmail.com</td>
+    </tr>
+    </tbody>
+</table>
+<h2>{{'Схема проезда'|trans}}</h2>
+<div id="map-canvas"></div>
+{% endblock %}

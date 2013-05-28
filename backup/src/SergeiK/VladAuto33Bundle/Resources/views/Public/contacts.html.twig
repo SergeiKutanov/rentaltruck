@@ -1,0 +1,33 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+<title>Прокат автомобилей во Владимире - Контакты</title>
+{% endblock %}
+
+{% block meta %}
+<meta name="keywords" content="прокат автомобилей во владимире, контакты">
+<meta name="description" content="Прокат автомобилей во Владимире. Наши контакты.">
+{% endblock %}
+
+{% block middle_bar %}
+<h1>Наши контакты</h1>
+<table class="conditions" cellspacing="0">
+    <tbody>
+    <tr>
+        <td>Телефоны</td>
+        <td>37-09-99<br />
+            8(904)030-74-41</td>
+    </tr>
+    <tr>
+        <td>E-mail</td>
+        <td>vladauto33@gmail.com</td>
+    </tr>
+    </tbody>
+</table>
+<h2>
+    Схема проезда</h2>
+<div id="ymaps-map-id_1348200973817380919663" style="width: 960px; height: 450px;"></div>
+<div style="width: 450px; text-align: right;"><a href="http://api.yandex.ru/maps/tools/constructor/?lang=ru-RU" target="_blank" style="color: #1A3DC1; font: 13px Arial,Helvetica,sans-serif;">Создано с помощью инструментов Яндекс.Карт</a></div>
+<script type="text/javascript">function fid_1348200973817380919663(ymaps) {var map = new ymaps.Map("ymaps-map-id_1348200973817380919663", {center: [40.32849801214768, 56.112355425727486], zoom: 12, type: "yandex#map"});map.controls.add("zoomControl").add("mapTools").add(new ymaps.control.TypeSelector(["yandex#map", "yandex#satellite", "yandex#hybrid", "yandex#publicMap"]));map.geoObjects.add(new ymaps.Placemark([40.32823477254917, 56.112111625104355], {balloonContent: "Прокат автомобилей во Владимире"}, {preset: "twirl#redDotIcon"})).add(new ymaps.Polygon([[[40.327350026689274, 56.1120976583958], [40.3275538745744, 56.111821905384545], [40.32891643675402, 56.112115642225646], [40.328841334901604, 56.11245733326146], [40.327350026689274, 56.1120976583958]]], {balloonContent: ""}, {strokeColor: "ff0000", strokeWidth: 5, strokeOpacity: 1, fillOpacity: 0.8, fillColor: "ff0000"}));};</script>
+<script type="text/javascript" src="http://api-maps.yandex.ru/2.0/?coordorder=longlat&load=package.full&wizard=constructor&lang=ru-RU&onload=fid_1348200973817380919663"></script>
+{% endblock %}

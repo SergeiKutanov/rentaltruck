@@ -1,0 +1,82 @@
+{% extends '::admin.html.twig' %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('tr.car_selection > td > ul').delegate('li', 'click', function(){
+                $(this).find('input:radio').attr('checked', true);
+                $(this).parent().find('li').removeClass('selected');
+                $(this).addClass('selected');
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block middle_bar %}
+<h1>Редактирование брони</h1>
+    <form action="{{ path('admin_save_booking', {'id': booking.id}) }}" method="post" {{ form_enctype(form) }}  >
+        <table>
+            <tbody>
+            <tr>
+                <td>{{ form_label(form.name) }}{{ form_errors(form.name) }}</td>
+                <td>{{ form_widget(form.name) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.start_date) }}{{ form_errors(form.start_date) }}</td>
+                <td>{{ form_widget(form.start_date) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.over_date) }}{{ form_errors(form.over_date) }}</td>
+                <td>{{ form_widget(form.over_date) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.phone) }}{{ form_errors(form.over_date) }}</td>
+                <td>{{ form_widget(form.phone) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.email) }}{{ form_errors(form.email) }}</td>
+                <td>{{ form_widget(form.email) }}</td>
+            </tr>
+            <tr>
+                <td>Бронь активна: </td>
+                <td><input type="checkbox" name="active" value="1" {% if booking.active %}checked="checked"{% endif %}/></td>
+            </tr>
+            <tr>
+                <td>Бронь обработана: </td>
+                <td><input type="checkbox" name="checked" value="1" {% if booking.checked %}checked="checked"{% endif %} </td>
+            </tr>
+            <tr>
+                <td colspan="2"><h3>{{ form_label(form.car) }}{{ form_errors(form.car) }}</h3></td>
+            </tr>
+            <tr class="car_selection">
+                <td colspan="2">
+                    <ul>
+                        {% for car in form.car %}
+                            <li>
+                                <ul>
+                                    <li>{{ cars[loop.index - 1].name }}</li>
+                                    <li>{{ cars[loop.index - 1].year | date('Y') }} г.в.</li>
+                                    <li>КПП - {{ cars[loop.index - 1].getTransmissionString }}</li>
+                                    <li>От {{ cars[loop.index - 1].pricesWithoutDriver.threeDays }} руб.</li>
+                                </ul>
+                                <img src="{{ cars[loop.index - 1].getMainPhotoPath }}" />
+                                {{ form_widget(car) }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    {{ form_rest(form) }}
+                    <input type="submit" value="Сохранить" />
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+    <form action="{{ path('admin_delete_booking', {'id': booking.id}) }}" method="GET">
+        {{ form_widget(delete_form) }}
+        <input type="submit" value="Удалить" />
+    </form>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends '::admin.html.twig' %}
+
+{% block middle_bar %}
+    <h1>Список Автомобилей</h1>
+    <table style="width: 100%;">
+        <tbody>
+        {% for car in cars %}
+        <tr>
+            <td><a href="{{ path('admin_edit_car', {'id': car.id}) }}">{{ car.name }}</a></td>
+            <td><a href="{{ path('admin_delete_car', {'id': car.id}) }}">удалить</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <hr>
+    <a href="{{path('admin_new_car')}}">Добавить автомобиль</a>
+{% endblock %}

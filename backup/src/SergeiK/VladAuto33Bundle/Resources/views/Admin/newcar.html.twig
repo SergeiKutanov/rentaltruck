@@ -1,0 +1,38 @@
+{% extends '::admin.html.twig' %}
+
+{% block middle_bar %}
+    <h1>Новый автомобиль</h1>
+    {% if id | length > 0 %}
+    <form action="{{ path('admin_save_car', {'id': id}) }}" method="POST" {{ form_enctype(form) }}>
+    {% else %}
+    <form action="{{path('admin_create_new_car')}}" method="POST" {{ form_enctype(form) }}>
+    {% endif %}
+        {{ form_errors(form) }}
+        <table>
+            <tbody>
+            <tr>
+                <td>{{ form_label(form.name) }}</td>
+                <td>{{ form_errors(form.name) }}{{ form_widget(form.name) }}</td>
+            </tr>
+            <tr>
+                <td colspan="2">{{ form_label(form.pricesWithoutDriver) }}{{ form_errors(form.pricesWithoutDriver) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.pricesWithoutDriver.day) }}{{ form_errors(form.pricesWithoutDriver.day) }}</td>
+                <td>{{ form_widget(form.pricesWithoutDriver.day) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.pricesWithoutDriver.threeDays) }}{{ form_errors(form.pricesWithoutDriver.threeDays) }}</td>
+                <td>{{ form_widget(form.pricesWithoutDriver.threeDays) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.pricesWithoutDriver.week) }}{{ form_errors(form.pricesWithoutDriver.week) }}</td>
+                <td>{{ form_widget(form.pricesWithoutDriver.week) }}</td>
+            </tr>
+            </tbody>
+        </table>
+        {{ form_rest(form) }}
+        <hr>
+        <input type="submit" value="Сохранить">
+    </form>
+{% endblock %}

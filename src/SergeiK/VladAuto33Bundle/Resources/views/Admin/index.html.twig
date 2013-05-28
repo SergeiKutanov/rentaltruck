@@ -1,0 +1,54 @@
+{% extends '::admin.html.twig' %}
+
+{% block javascript %}
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('table').delegate('a.book_del', 'click', function(){
+                if(confirm("Удалить бронирование?"))
+                {
+                    return true;
+                }
+                return false;
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block middle_bar %}
+<h1>Список броней на автомобили</h1>
+    {% if booking | length > 0 %}
+        <table style="width:100%;">
+            <tbody>
+                <tr>
+                    <th>Обработано</th>
+                    <th>Активно</th>
+                    <th>Имя</th>
+                    <th>Выдача</th>
+                    <th>Возврат</th>
+                    <th>Телефон</th>
+                    <th>Email</th>
+                    <th>Автомобиль</th>
+                    <th>Удалить</th>
+                </tr>
+                {% for book in booking %}
+                <tr>
+                    <td>{% if book.checked %}Да{% else %}Нет{% endif %}</td>
+                    <td>{% if book.active %}Да{% else %}Нет{% endif %}</td>
+                    <td><a href="{{ path('admin_edit_booking', {'id': book.id}) }}">{{ book.name }}</a></td>
+                    <td>{{ book.startDate | date('Y-M-d') }}</td>
+                    <td>{{ book.overDate | date('Y-M-d') }}</td>
+                    <td>{{ book.phone }}</td>
+                    <td>{{ book.email }}</td>
+                    <td><a href="{{ path('admin_edit_car', {'id': book.car.id}) }}">{{ book.car.name }}</a></td>
+                    <td><a href="{{ path('admin_delete_booking', {'id': book.id}) }}" class="book_del">X</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Активных бронирований нет</p>
+    {% endif %}
+    {% if not archive %}
+        <a href="{{ path('admin_booking_archive') }}">Архив броней</a>
+    {% endif %}
+{% endblock %}

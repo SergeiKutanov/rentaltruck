@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru-ru" xml:lang="ru-ru">
+    <head>
+        {% set right_bar = 'false' %}
+        {% set left_bar = 'false' %}
+        {% block title %}<title>Авангард - прокат автомобилей | Администрирование сайта</title>{% endblock %}
+        <meta content="text/html; charset=utf-8" http-equiv="content-type">
+        <meta content="index, follow" name="robots">
+        <meta content="ru-RU" name="language">
+        {% block meta %}{% endblock %}
+        {% block css %}<link href="{{ asset('/css/style.css') }}" type="text/css" rel="stylesheet">{% endblock %}
+        <script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
+        {% block javascript %}{% endblock %}
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="nav">
+                <ul>
+                    <li><a href="{{ path('admin_index') }}">Бронирование</a></li>
+                    <li><a href="{{ path('admin_cars_list') }}"><i>Список автомобилей</i></a></li>
+                    <li><a href="{{ path('logout') }}"><i>Выйти</i></a></li>
+                </ul>
+            </div>
+
+            <div id="page">
+                <div id="header">
+                    <div id="logo"><a class="logo" href="{{ path('public_index') }}"></a></div>
+                    <div id="header_background"></div>
+                </div>
+                {% if left_bar == 'true'%}
+                    <div id="left_bar">
+                    </div>
+                {% endif %}
+                    <div id="middle_bar"
+                        {% if (left_bar == 'true') and (right_bar == 'true') %}
+                           style="width:580px; float:left;"
+                        {% else %}
+                           {% if (left_bar == 'true') or (right_bar == 'true') %}
+                               style="width:780px; float: left;"
+                           {% endif %}
+                        {%endif%}>
+                        {% block middle_bar %}
+
+                        {% endblock %}
+                    </div>
+                {% if right_bar == 'true' %}
+                    <div id="right_bar">
+
+                    </div>
+                {% endif %}
+            </div>
+            <div id="footer">
+
+            </div>
+        </div>
+
+    </body>
+</html>

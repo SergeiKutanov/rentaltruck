@@ -1,0 +1,27 @@
+admin_index:
+    pattern: /
+    defaults: {_controller:SergeiKVladAuto33Bundle:Admin:index}
+
+admin_cars_list:
+    pattern: /cars
+    defaults: { _controller:SergeiKVladAuto33Bundle:Admin:carslist }
+
+admin_new_car:
+    pattern: /new_car
+    defaults: { _controller:SergeiKVladAuto33Bundle:Admin:newcar }
+    requirements: { _method: get }
+
+admin_create_new_car:
+    pattern: /new_car
+    defaults: { _controller:SergeiKVladAuto33Bundle:Admin:createnewcar }
+    requirements: { _method: post }
+
+admin_edit_car:
+    pattern: /edit_car/{id}
+    defaults: { _controller:SergeiKVladAuto33Bundle:Admin:editcar }
+    requirements: { _method: get }
+
+admin_save_car:
+    pattern: /edit_car/{id}
+    defaults: { _controller:SergeiKVladAuto33Bundle:Admin:saveCar }
+    requirements: { _method: post }

@@ -1,0 +1,25 @@
+{% extends '::admin.html.twig' %}
+
+{% block middle_bar %}
+    {% if error %}
+        <div>{{ error.message }}</div>
+    {% endif %}
+
+    <form action="{{ path('login_check') }}" method="POST">
+        <table>
+            <tbody>
+            <tr>
+                <td><label for="username">Имя пользователя: </label></td>
+                <td><input type="text" id="username" name="_username" value="{{ last_username }}"/></td>
+            </tr>
+            <tr>
+                <td><label for="password">Пароль: </label></td>
+                <td><input type="password" id="password" name="_password" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">Войти</button></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+{% endblock %}

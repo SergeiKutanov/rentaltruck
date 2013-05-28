@@ -1,0 +1,305 @@
+{% extends '::base.html.twig' %}
+
+{% block javascript %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        //change big photo function
+        $('div.thumbs').delegate('img#thumb', 'click', function(event){
+            var address = $(this).attr('data');
+            $(this).parent().parent().find('img').each(function(i, v){
+                if($(v).css('opacity') != '1')
+                {
+                    $(v).css('opacity', '1');
+                }
+            });
+            $(this).css('opacity', '0.7');
+            $('img.big_img').attr('src', address);
+        });
+        //---------------------------------------------------------------------------
+
+        //function for big photo
+        $('div.big_photo').delegate('img.big_img', 'click', function(){
+            var address = $(this).attr('src');
+            $("div.curtain").css('display', 'block');
+            $("div.curtain").animate({
+                opacity: 0.7
+            }, 500, function(){
+                var img = $("<img src='' />");
+                $(img).attr('src', address);
+                $('div.gallery_pic').append(img);
+                //calculate left offset for the photo
+                var width = ($('body').width() - $('div.gallery_pic').width())/2;
+                if(width < 0)
+                {
+                    width = 0;
+                }
+                $('div.gallery_pic').css('left', width + 'px');
+
+                //calculate top offset
+                var height = ($('div.curtain').height() - $('div.gallery_pic').height())/2;
+                if(height < 0)
+                {
+                    height = 0;
+                }
+                $('div.gallery_pic').css('top', height + 'px');
+
+                $('div.gallery_pic').animate({
+                    opacity: 1
+                }, 300);
+            });
+        });
+
+        $(document).delegate('div.curtain', 'click', function(){
+            $('div.gallery_pic').animate({
+                opacity: 0
+            }, 300);
+            $('div.gallery_pic img').remove();
+            $(this).animate({
+                opacity: 0
+            }, 500, function(){
+                $(this).css('display', 'none');
+                $('body').css('overflow', 'auto');
+            });
+        });
+
+        $(document).delegate('div.gallery_pic', 'click', function(){
+            $('div.curtain').click();
+        });
+
+        //catch if escape button is pressed
+        $(document).keyup(function(e){
+            if(e.keyCode == 27)
+            {
+                if($('div.curtain').css('display') != 'none')
+                {
+                    $('div.curtain').click();
+                }
+            }
+        });
+        //---------------------------------------------------------------------------
+    });
+</script>
+{% endblock %}
+
+{% block title %}
+    <title>Аренда автомобилей во Владимире - {{ car.name }}</title>
+{% endblock %}
+
+{% block meta %}
+<meta name="keywords" content="{{ car.name }} в аренду без водителя во владимире,
+                                    аренда {{ car.name }} без водителя во владимире,
+                                    аренда автомобиля без водителя во Владимире по низким ценам">
+<meta name="description" content="Аренд {{ car.name }} во Владимире. У нас вы можете взять в аренду автомобили без водителя любого класса по низким ценам.">
+{% endblock %}
+
+{% block middle_bar %}
+<div class="car_add">
+    <h1>
+        Прокат автомобиля {{ car.name }}
+    </h1>
+    <hr>
+    <div class="left">
+        <table cellspacing="0">
+            <tbody>
+                <!--
+                    characteristics
+                -->
+                <tr>
+                    <th colspan="2"><h4>Технические характеристики</h4></th>
+                </tr>
+                <!--
+                <tr>
+                    <td>Год выпуска</td>
+                    <td>{{ car.year | date('Y') }} г.</td>
+                </tr>
+                -->
+                <tr>
+                    <td>Колличество посадочных мест: </td>
+                    <td>{{ car.seats }}</td>
+                </tr>
+                <tr>
+                    <td>Коробка передач</td>
+                    <td>{{ car.getTransmissionString }}</td>
+                </tr>
+                <tr>
+                    <td>Средний расход</td>
+                    <td>{{ car.consumption }} л/100 км</td>
+                </tr>
+                {% if car.height %}
+                <tr>
+                    <td>Высота грузового отделения: </td>
+                    <td>{{ car.height }} см</td>
+                </tr>
+                {% endif %}
+                {% if car.width %}
+                    <tr>
+                        <td>Ширина грузового отделения: </td>
+                        <td>{{ car.width }} см</td>
+                    </tr>
+                {% endif %}
+                {% if car.depth %}
+                    <tr>
+                        <td>Глубина грузового отделения: </td>
+                        <td>{{ car.depth }} см</td>
+                    </tr>
+                {% endif %}
+                {% if car.capacity %}
+                    <tr>
+                        <td>Грузоподъемность: </td>
+                        <td>{{ car.capacity }} кг</td>
+                    </tr>
+                {% endif %}
+                <tr>
+                    <th colspan="2"><h4>Комплектация</h4></th>
+                </tr>
+                <tr>
+                    <td>АБС: </td>
+                    <td>
+                        {% if car.additions.abs %}
+                        да
+                        {% else %}
+                        нет
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Антипробуксовочная система: </td>
+                    <td>
+                        {% if car.additions.antislip %}
+                        да
+                        {% else %}
+                        нет
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Датчик света: </td>
+                    <td>
+                        {% if car.additions.lightsensor %}
+                        да
+                        {% else %}
+                        нет
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Датчик дождя: </td>
+                    <td>
+                        {% if car.additions.rainsensor %}
+                        да
+                        {% else %}
+                        нет
+                        {% endif %}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Усилитель руля: </td>
+                    <td>
+                        {% if car.additions.PowerSteering %}
+                        да
+                        {% else %}
+                        нет
+                        {% endif %}
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Кондиционер: </td>
+                    <td>
+                        {{ car.additions.getConditionerString }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>Обогрев сидений: </td>
+                    <td>
+                        {% if car.additions.warmseats %}
+                        да
+                        {% else %}
+                        нет
+                        {% endif %}
+                    </td>
+                </tr>
+                <!--
+                   prices without driver
+                -->
+                <tr>
+                    <th colspan="2"><h4>Стоимость аренды без водителя</h4></th>
+                </tr>
+                <tr>
+                    <td>За сутки</td>
+                    <td>{{ car.pricesWithoutDriver.day }} руб.*</td>
+                </tr>
+                <tr>
+                    <td>От трех до пяти суток</td>
+                    <td>{{ car.pricesWithoutDriver.threeDays }} руб.*</td>
+                </tr>
+                <tr>
+                    <td>За неделю</td>
+                    <td>{{ car.pricesWithoutDriver.week }} руб.*</td>
+                </tr>
+                <!--
+                    prices with driver
+                -->
+                <tr>
+                    <th colspan="2"><h4>Стоимость аренды с водителем</h4></th>
+                </tr>
+				<tr>
+				<td colspan="2">Цены рассматриваются индивидуально</td>
+				</tr>
+				<!--                
+				<tr>
+                    <td>За сутки</td>
+                    <td>{{ car.pricesWithDriver.day }} руб.</td>
+                </tr>
+                <tr>
+                    <td>От трех до пяти суток</td>
+                    <td>{{ car.pricesWithDriver.threeDays }} руб.</td>
+                </tr>
+                <tr>
+                    <td>За неделю</td>
+                    <td>{{ car.pricesWithDriver.week }} руб.</td>
+                </tr>
+				-->
+				<tr>
+					<th colspan="2"><h4>Почасовая аренда</h4></th>
+				</tr>
+				<tr>
+					<td>Стоимость аренды автомобиля в час</td>
+					<td>{{car.pricesForWedding.hour}} руб.</td>
+				</tr>
+                {% if car.info | length > 0 %}
+                <tr>
+                    <th colspan="2"><b><h4>Дополнительная информация</h4></b></th>
+                </tr>
+                <tr>
+                    <td colspan="2" class="add_info">
+                        <p>
+                            {{ car.info }}
+                        </p>
+                    </td>
+                </tr>
+                {% endif %}
+            </tbody>
+        </table>
+        <p class="body_text">
+            Этот автомобиль вы можете забронировать позвонив по <a href="{{path('public_contacts')}}">этим телефонам</a>.
+        </p>
+        <p class="asterisk">* Дополнительно к стоимости аренды автомобиля оплачивается разовый залог в сумме {{ car.deposit }} р.
+        (Стоимость залога может изменяться)</p>
+    </div>
+    <div class="right">
+        <h3>Фотографии</h3>
+        <div class="big_photo">
+            <img src="{{ car.photos[0].getWebPath }}" alt="{{ car.name }}" class="big_img" />
+        </div>
+        <div class="thumbs">
+            <ul>
+                {% for photo in car.photos %}
+                    <li><img src="{{photo.getThumbWebPath}}" alt="{{photo.getThumbWebPath}}" id="thumb" data="{{photo.getWebPath}}"/></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
