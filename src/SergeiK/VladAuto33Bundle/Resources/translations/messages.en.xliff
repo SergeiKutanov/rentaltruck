@@ -18,6 +18,10 @@
                 <source>Трансфер</source>
                 <target>Transfer</target>
             </trans-unit>
+            <trans-unit id="5">
+                <source>Парк автомобилей</source>
+                <target>Cars</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
