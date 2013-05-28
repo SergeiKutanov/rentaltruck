@@ -109,7 +109,7 @@
                     г. Владимир,<br /> ул. Лакина, 4г
                 </p>
             </div>
-            <div class="clickable"><p>{{'CONTACTS'|trans}}</p></div>
+            <div class="clickable"><p>{{'КОНТАКТЫ'|trans}}</p></div>
         </div>
         <!------------------------>
         <div id="wrapper">
@@ -126,7 +126,7 @@
                             {% if app.request.attributes.get('_route') == 'public_with_driver' %}
                                 class="selected"
                             {% endif %}
-                            ><a href="{{ path('public_with_driver') }}">Трансфер</a></li>
+                            ><a href="{{ path('public_with_driver') }}">{{ 'Трансфер'| trans }}</a></li>
                     <li
                             {#{% if app.request.attributes.get('_route') == 'public_procession' %}#}
                                 {#class="selected"#}
@@ -136,7 +136,7 @@
                             {% if app.request.attributes.get('_route') == 'public_cars' %}
                                 class="selected"
                             {% endif %}
-                            ><a href="{{ path('public_cars')}}">Парк автомобилей</a></li>
+                            ><a href="{{ path('public_cars')}}">{{ 'Парк автомобиле' | trans }}й</a></li>
                     <li
                             {% if app.request.attributes.get('_route') == 'public_conditions' %}
                                 class="selected"
