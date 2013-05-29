@@ -28,7 +28,7 @@ public_contacts:
 
 public_show_car:
     pattern: /car/{id}
-    defaults: { _controller:SergeiKVladAuto33Bundle:Public:showCar }
+    defaults: { _controller:SergeiKVladAuto33Bundle:Public:showCar, id: 12 }
 
 public_booking:
     pattern: /booking

@@ -114,8 +114,11 @@
         <!------------------------>
         <div id="wrapper">
             <div id="nav">
-				<a href="{{ path(app.request.attributes.get('_route'), {'_locale' : 'ru'}) }}"><img class="lng_img" src="../images/rus.gif" alt="русская версия" title="русская версия"/></a>
-				<a href="{{ path(app.request.attributes.get('_route'), {'_locale' : 'en'}) }}"><img class="lng_img" src="../images/uk.gif" alt="english version" title="english version"/></a>
+					{% set params = app.request.attributes.get('_route_params') %}
+					{% set params = params | merge({'_locale': 'ru'}) %}
+				<a href="{{ path(app.request.attributes.get('_route'), params) }}"><img class="lng_img" src="/images/rus.gif" alt="русская версия" title="русская версия"/></a>
+					{% set params = params | merge({'_locale': 'en'}) %}
+				<a href="{{ path(app.request.attributes.get('_route'), params) }}"><img class="lng_img" src="/images/uk.gif" alt="english version" title="english version"/></a>
                 <ul>
                     <li
                             {% if app.request.attributes.get('_route') == 'public_index' %}

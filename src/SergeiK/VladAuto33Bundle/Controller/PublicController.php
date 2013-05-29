@@ -91,8 +91,8 @@ class PublicController extends Controller
      * show one car
      */
     public function showCarAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
+    {        
+		$em = $this->getDoctrine()->getManager();
         $car = $em->getRepository('SergeiKVladAuto33Bundle:Car')->findOneBy(array(
             'id'        => $id,
             'published' => 1
