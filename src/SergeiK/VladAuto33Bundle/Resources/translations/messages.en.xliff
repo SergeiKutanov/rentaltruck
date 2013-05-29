@@ -70,6 +70,22 @@
                 <source>Ваше имя: </source>
                 <target>Your name: </target>
             </trans-unit>
+            <trans-unit id="18">
+                <source>Дата выдачи авто: </source>
+                <target>Pick-up date: </target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>Дата сдачи авто: </source>
+                <target>Return date: </target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>Номер телефона: </source>
+                <target>Phone: </target>
+            </trans-unit>
+            <trans-unit id="21">
+                <source>Забронировать автомобиль</source>
+                <target>Book a car</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
