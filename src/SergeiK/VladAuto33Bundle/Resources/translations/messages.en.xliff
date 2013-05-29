@@ -42,6 +42,10 @@
                 <source>г. Владимир,&lt;br /&gt; ул. Лакина, 4г</source>
                 <target>Vladimir,&lt;br /&gt; Lakina st., 4g</target>
             </trans-unit>
+            <trans-unit id="11">
+                <source>Забронировать автомобиль вы можете по телефону: 8(4922)37-09-99</source>
+                <target>You can book a car by the phone: 8(4922)37-09-99</target>
+            </trans-unit
         </body>
     </file>
 </xliff>
