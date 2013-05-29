@@ -142,15 +142,15 @@
                             <td>{{ form_widget(form.name) }}</td>
                         </tr>
                         <tr>
-                            <td>{{ form_label(form.start_date) }}{{ form_errors(form.start_date) }}</td>
+                            <td>{{ form_label(form.start_date) | trans | raw }}{{ form_errors(form.start_date) }}</td>
                             <td>{{ form_widget(form.start_date) }}</td>
                         </tr>
                         <tr>
-                            <td>{{ form_label(form.over_date) }}{{ form_errors(form.over_date) }}</td>
+                            <td>{{ form_label(form.over_date) | trans | raw }}{{ form_errors(form.over_date) }}</td>
                             <td>{{ form_widget(form.over_date) }}</td>
                         </tr>
                         <tr>
-                            <td>{{ form_label(form.phone) }}{{ form_errors(form.over_date) }}</td>
+                            <td>{{ form_label(form.phone) | trans | raw}}{{ form_errors(form.over_date) }}</td>
                             <td>{{ form_widget(form.phone) }}</td>
                         </tr>
                         <tr>
@@ -158,7 +158,7 @@
                             <td>{{ form_widget(form.email) }}</td>
                         </tr>
                         <tr>
-                            <td class="confirm" colspan="2"><input type="submit" value="Забронировать автомобиль"/></td>
+                            <td class="confirm" colspan="2"><input type="submit" value="{{'Забронировать автомобиль' | trans | raw }}"/></td>
                         </tr>
                         </tbody>
                     </table>
