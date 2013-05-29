@@ -100,7 +100,7 @@ class PublicController extends Controller
 
         if($car === null)
         {
-            $this->createNotFoundException("Car was not found");
+            throw $this->createNotFoundException("Car was not found");
         }
 
         return $this->render("SergeiKVladAuto33Bundle:Public:showCar.html.twig", array(
