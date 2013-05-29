@@ -45,7 +45,7 @@
             <trans-unit id="11">
                 <source>Забронировать автомобиль вы можете по телефону: </source>
                 <target>You can book a car by the phone: </target>
-            </trans-unit
+            </trans-unit>
         </body>
     </file>
 </xliff>
