@@ -138,7 +138,7 @@
                     <table>
                         <tbody>
                         <tr>
-                            <td>{{ form_label(form.name) }}{{ form_errors(form.name) }}</td>
+                            <td>{{ form_label(form.name) | trans }}{{ form_errors(form.name) }}</td>
                             <td>{{ form_widget(form.name) }}</td>
                         </tr>
                         <tr>
