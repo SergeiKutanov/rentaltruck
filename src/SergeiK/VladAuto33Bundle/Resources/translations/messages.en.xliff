@@ -62,6 +62,10 @@
                 <source>Аренда автомобилей во Владимире.</source>
                 <target>Car rent in Vladimir</target>
             </trans-unit>
+            <trans-unit id="16">
+                <source>Аренда автомобилей во Владимире. Аренда коммерческого транспорта без водителя. У нас вы можете взять в аренду грузовой автомобиль любого класса по низким ценам.</source>
+                <target>Car rent in Vladimir. Commercial vehicle rent without a driver. We can rent you a commercial vehicle by low prices.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
