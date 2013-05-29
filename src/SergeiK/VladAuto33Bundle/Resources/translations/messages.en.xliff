@@ -39,7 +39,7 @@
                 <target>Address</target>
             </trans-unit>
             <trans-unit id="10">
-                <source>г. Владимир,&lt br /&gt; ул. Лакина, 4г</source>
+                <source>г. Владимир,&lt;br /&gt; ул. Лакина, 4г</source>
                 <target>Vladimir,&lt;br /&gt; Lakina st., 4g</target>
             </trans-unit>
         </body>
