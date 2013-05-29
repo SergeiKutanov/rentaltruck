@@ -59,7 +59,7 @@
                 <target>Commercial vehicles rental, trucks rental</target>
             </trans-unit>
             <trans-unit id="15">
-                <source>Аренда автомобилей во Владимире</source>
+                <source>Аренда автомобилей во Владимире.</source>
                 <target>Car rent in Vladimir</target>
             </trans-unit>
         </body>
