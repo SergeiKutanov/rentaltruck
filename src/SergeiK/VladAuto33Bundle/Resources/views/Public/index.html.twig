@@ -33,7 +33,7 @@
                 );
                 if(!datesCompare(start, end))
                 {
-                    alert('Проверьте даты бронирования!');
+                    alert({{ 'Проверьте даты бронирования!' | trans }});
                     return false;
                 }
 
@@ -56,7 +56,7 @@
                 }
                 else
                 {
-                    alert('Введите номер телефона в одном из форматов: (XXX)XXX-XXXX | (XXXX)XX-XX-XX | (XXX)XXX-XX-XX | (XXXX)XXX-XX-XX');
+                    alert({{ 'Введите номер телефона в одном из форматов:' | trans }} + '(XXX)XXX-XXXX | (XXXX)XX-XX-XX | (XXX)XXX-XX-XX | (XXXX)XXX-XX-XX');
                 }
                 return false;
             });

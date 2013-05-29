@@ -46,6 +46,14 @@
                 <source>Забронировать автомобиль вы можете по телефону: </source>
                 <target>You can book a car by the phone: </target>
             </trans-unit>
+            <trans-unit id="12">
+                <source>Проверьте даты бронирования!</source>
+                <target>Check booking dates!</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>Введите номер телефона в одном из форматов:</source>
+                <target>Enter the phone number according to one of the formats:</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
