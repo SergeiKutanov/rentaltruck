@@ -4,7 +4,7 @@
         <body>
             <trans-unit id="1">
                 <source>Схема проезда</source>
-                <target>How to get to us</target>
+                <target>Location</target>
             </trans-unit>
             <trans-unit id="2">
                 <source>КОНТАКТЫ</source>
