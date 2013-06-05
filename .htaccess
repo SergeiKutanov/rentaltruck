@@ -1,5 +1,5 @@
 RewriteEngine on
-RewriteCond %{HTTP_HOST} ^(www.)?rentaltruck.ru
+RewriteCond %{HTTP_HOST} ^(www.)?sergeifq.bget.ru
 RewriteCond %{REQUEST_URI} !^/web/
 RewriteRule ^(.*)$ /web/$1
 RewriteCond %{DOCUMENT_ROOT}%{REQUEST_FILENAME} !-f
