@@ -23,8 +23,8 @@
         <meta content="index, follow" name="robots">
         <meta content="ru-RU" name="language">
         {% block meta %}{% endblock %}
-        {% block css %}<link href="{{ asset('/css/style.css') }}" type="text/css" rel="stylesheet">{% endblock %}
-        <script type="text/javascript" src="{{ asset('/js/jquery.js') }}"></script>
+        {% block css %}<link href="{{ asset('css/style.css') }}" type="text/css" rel="stylesheet">{% endblock %}
+        <script type="text/javascript" src="{{ asset('js/jquery.js') }}"></script>
         <script type="text/javascript">
             $(document).ready(function(){
                 $('div.contacts_fold').delegate('div.clickable', 'click', function(){
@@ -116,9 +116,9 @@
             <div id="nav">
 					{% set params = app.request.attributes.get('_route_params') %}
 					{% set params = params | merge({'_locale': 'ru'}) %}
-				<a href="{{ path(app.request.attributes.get('_route'), params) }}"><img class="lng_img" src="/images/rus.gif" alt="русская версия" title="русская версия"/></a>
+				<a href="{{ path(app.request.attributes.get('_route'), params) }}"><img class="lng_img" src="{{ asset('images/rus.gif') }}" alt="русская версия" title="русская версия"/></a>
 					{% set params = params | merge({'_locale': 'en'}) %}
-				<a href="{{ path(app.request.attributes.get('_route'), params) }}"><img class="lng_img" src="/images/uk.gif" alt="english version" title="english version"/></a>
+				<a href="{{ path(app.request.attributes.get('_route'), params) }}"><img class="lng_img" src="{{ asset('images/uk.gif') }}" alt="english version" title="english version"/></a>
                 <ul>
                     <li
                             {% if app.request.attributes.get('_route') == 'public_index' %}
