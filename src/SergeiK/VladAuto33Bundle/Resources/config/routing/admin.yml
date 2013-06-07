@@ -47,3 +47,8 @@ admin_delete_booking:
 admin_booking_archive:
     pattern: /booking_archive
     defaults: { _controller:SergeiKVladAuto33Bundle:Admin:bookingArchive }
+
+admin_client_crud:
+    resource: "@SergeiKVladAuto33Bundle/Controller/ClientController.php"
+    type: annotation
+    prefix: /

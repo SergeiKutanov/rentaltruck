@@ -768,3 +768,7 @@ div.vk_like{
 	margin: 8px 3px;
 	width: 20px;
 }
+
+table.records_list{
+    width: 100%;
+}
