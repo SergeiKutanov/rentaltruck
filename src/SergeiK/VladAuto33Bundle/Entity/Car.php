@@ -115,6 +115,10 @@ class Car
      */
     protected $capacity;
 
+    public function __toString(){
+        return $this->getName();
+    }
+
     /**
      * @return path to main photo
      */

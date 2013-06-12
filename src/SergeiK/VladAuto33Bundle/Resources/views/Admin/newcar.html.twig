@@ -213,7 +213,8 @@
         <hr>
         <h2>{{ form_label(form.photos) }}</h2>{{ form_errors(form.photos) }}
         <a href="#" class="add_photo">Добавить фото</a><br />
-        <ul id="photo" data-prototype="{{ form_widget(form.photos.get('prototype')) | e }}">
+
+        <ul id="photo" data-prototype="{{ form_widget(form.photos.vars.prototype) | e }}">
             {% for photo in form.photos %}
                 <li>
                     <img src="/uploads/images/cars/thumbs/{{car.photos[loop.index-1].path}}"/>
