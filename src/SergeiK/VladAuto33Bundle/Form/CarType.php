@@ -22,6 +22,26 @@ class CarType extends AbstractType
                 'required'  => true,
                 'read_only' => false
         ))
+            ->add('vin', 'text', array(
+                'label'     => 'VIN: ',
+                'required'  => false
+        ))
+            ->add('engineId', 'text', array(
+                'label'     => 'Номер двигателя: ',
+                'required'  => false
+        ))
+            ->add('pts', 'text', array(
+                'label'     => 'ПТС: ',
+                'required'  => false
+        ))
+            ->add('sts', 'text', array(
+                'label'     => 'CТС: ',
+                'required'  => false
+        ))
+            ->add('plate', 'text', array(
+                'label'     => 'Рег. знак: ',
+                'required'  => false
+        ))
             ->add('year', 'date', array(
                 'label'         => 'Год выпуска: ',
                 'widget'        => 'choice',

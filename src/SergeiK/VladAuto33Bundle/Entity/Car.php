@@ -115,6 +115,31 @@ class Car
      */
     protected $capacity;
 
+    /**
+     * @ORM\Column(name="vin", type="string", length=17, nullable=true)
+     */
+    protected $vin;
+
+    /**
+     * @ORM\Column(name="engine_id", type="string", length=15, nullable=true)
+     */
+    protected $engineId;
+
+    /**
+     * @ORM\Column(name="pts", type="string", length=15, nullable=true)
+     */
+    protected $pts;
+
+    /**
+     * @ORM\Column(name="sts", type="string", length=15, nullable=true)
+     */
+    protected $sts;
+
+    /**
+     * @ORM\Column(name="plate", type="string", length=8, nullable=true)
+     */
+    protected $plate;
+
     public function __toString(){
         return $this->getName();
     }
@@ -567,5 +592,120 @@ class Car
     public function getCapacity()
     {
         return $this->capacity;
+    }
+
+    /**
+     * Set vin
+     *
+     * @param string $vin
+     * @return Car
+     */
+    public function setVin($vin)
+    {
+        $this->vin = $vin;
+    
+        return $this;
+    }
+
+    /**
+     * Get vin
+     *
+     * @return string 
+     */
+    public function getVin()
+    {
+        return $this->vin;
+    }
+
+    /**
+     * Set engineId
+     *
+     * @param string $engineId
+     * @return Car
+     */
+    public function setEngineId($engineId)
+    {
+        $this->engineId = $engineId;
+    
+        return $this;
+    }
+
+    /**
+     * Get engineId
+     *
+     * @return string 
+     */
+    public function getEngineId()
+    {
+        return $this->engineId;
+    }
+
+    /**
+     * Set pts
+     *
+     * @param string $pts
+     * @return Car
+     */
+    public function setPts($pts)
+    {
+        $this->pts = $pts;
+    
+        return $this;
+    }
+
+    /**
+     * Get pts
+     *
+     * @return string 
+     */
+    public function getPts()
+    {
+        return $this->pts;
+    }
+
+    /**
+     * Set sts
+     *
+     * @param string $sts
+     * @return Car
+     */
+    public function setSts($sts)
+    {
+        $this->sts = $sts;
+    
+        return $this;
+    }
+
+    /**
+     * Get sts
+     *
+     * @return string 
+     */
+    public function getSts()
+    {
+        return $this->sts;
+    }
+
+    /**
+     * Set plate
+     *
+     * @param string $plate
+     * @return Car
+     */
+    public function setPlate($plate)
+    {
+        $this->plate = $plate;
+    
+        return $this;
+    }
+
+    /**
+     * Get plate
+     *
+     * @return string 
+     */
+    public function getPlate()
+    {
+        return $this->plate;
     }
 }
