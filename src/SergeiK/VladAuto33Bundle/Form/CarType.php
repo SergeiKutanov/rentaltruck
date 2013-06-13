@@ -42,6 +42,14 @@ class CarType extends AbstractType
                 'label'     => 'Рег. знак: ',
                 'required'  => false
         ))
+            ->add('osago', 'text', array(
+                'label'     => 'Полис ОСАГО, №: ',
+                'required'  => false
+        ))
+            ->add('osago_date', null, array(
+                'label'     => 'Дата выдачи полиса: ',
+                'required'  => false
+        ))
             ->add('year', 'date', array(
                 'label'         => 'Год выпуска: ',
                 'widget'        => 'choice',

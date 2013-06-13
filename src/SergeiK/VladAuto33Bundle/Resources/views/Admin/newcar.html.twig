@@ -100,6 +100,14 @@
                 <td>{{ form_errors(form.plate) }}{{ form_widget(form.plate) }}</td>
             </tr>
             <tr>
+                <td>{{ form_label(form.osago) }}{{ form_errors(form.osago) }}</td>
+                <td>{{ form_widget(form.osago) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.osago_date) }}{{ form_errors(form.osago_date) }}</td>
+                <td>{{ form_widget(form.osago_date) }}</td>
+            </tr>
+            <tr>
                 <td>{{ form_label(form.year) }}{{ form_errors(form.year) }}</td>
                 <td>{{ form_widget(form.year.year)}}
                     {{ form_widget(form.year.month, { 'attr': { 'style': 'display:none' } }) }}

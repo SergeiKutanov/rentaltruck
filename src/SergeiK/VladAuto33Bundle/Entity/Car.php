@@ -140,6 +140,18 @@ class Car
      */
     protected $plate;
 
+    /**
+     * @ORM\Column(name="osago", type="string", length=14, nullable=true)
+     */
+    protected $osago;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="osago_date", type="date", nullable=true)
+     */
+    private $osago_date;
+
     public function __toString(){
         return $this->getName();
     }
@@ -707,5 +719,51 @@ class Car
     public function getPlate()
     {
         return $this->plate;
+    }
+
+    /**
+     * Set osago
+     *
+     * @param string $osago
+     * @return Car
+     */
+    public function setOsago($osago)
+    {
+        $this->osago = $osago;
+    
+        return $this;
+    }
+
+    /**
+     * Get osago
+     *
+     * @return string 
+     */
+    public function getOsago()
+    {
+        return $this->osago;
+    }
+
+    /**
+     * Set osago_date
+     *
+     * @param \DateTime $osagoDate
+     * @return Car
+     */
+    public function setOsagoDate($osagoDate)
+    {
+        $this->osago_date = $osagoDate;
+    
+        return $this;
+    }
+
+    /**
+     * Get osago_date
+     *
+     * @return \DateTime 
+     */
+    public function getOsagoDate()
+    {
+        return $this->osago_date;
     }
 }
