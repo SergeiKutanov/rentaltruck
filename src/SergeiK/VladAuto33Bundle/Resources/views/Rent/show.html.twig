@@ -58,8 +58,11 @@
         <a href="{{ path('rent_edit', { 'id': entity.id }) }}">
             Edit
         </a>
-    </li>
     <li>
+        <a href="{{ path('print', { 'id': entity.id }) }}">
+            Print
+        </a>
+    </li>
         <form action="{{ path('rent_delete', { 'id': entity.id }) }}" method="post">
             <input type="hidden" name="_method" value="DELETE" />
             {{ form_widget(delete_form) }}

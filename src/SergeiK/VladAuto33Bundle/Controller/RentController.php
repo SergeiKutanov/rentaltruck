@@ -2,6 +2,7 @@
 
 namespace SergeiK\VladAuto33Bundle\Controller;
 
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -205,5 +206,43 @@ class RentController extends Controller
             ->add('id', 'hidden')
             ->getForm()
         ;
+    }
+
+    /**
+     * generates PDF doc
+     * @Route("/{id}/print", name="print")
+     * @Method("GET")
+     * @Template()
+     */
+    public function printAction($id){
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = $em->getRepository('SergeiKVladAuto33Bundle:Rent')->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Unable to find Rent entity.');
+        }
+
+        require_once('fpdf.php');
+        require_once('fpdi.php');
+
+        try{
+            $pdf = new \FPDI();
+            $pdf->AddPage();
+            $pdf->setSourceFile("docs/dog.pdf");
+            $tplidx = $pdf->importPage(1);
+            $pdf->useTemplate($tplidx, 10, 10, 200);
+
+            $pdf->SetFont('Arial');
+            $pdf->SetTextColor(0,0,0);
+            $pdf->SetFontSize(8);
+            $pdf->SetXY(50, 124);
+            $pdf->Write(1, "Ajay Patel");
+            $pdf->Output("test.pdf", "D");
+        }catch(Exception $ex){
+            die('error');
+        }
+
+        die("ok");
     }
 }
