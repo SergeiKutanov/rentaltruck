@@ -1,0 +1,20 @@
+{% extends '::admin.html.twig' %}
+{% form_theme form 'form_table_layout.html.twig' %}
+{% block middle_bar -%}
+    <h1>Organisation creation</h1>
+
+    <form action="{{ path('organisation_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+        <p>
+            <button type="submit">Create</button>
+        </p>
+    </form>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('organisation') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+{% endblock %}

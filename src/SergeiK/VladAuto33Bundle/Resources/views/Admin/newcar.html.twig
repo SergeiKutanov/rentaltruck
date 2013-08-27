@@ -80,6 +80,34 @@
                 <td>{{ form_errors(form.name) }}{{ form_widget(form.name) }}</td>
             </tr>
             <tr>
+                <td>{{ form_label(form.vin) }}</td>
+                <td>{{ form_errors(form.vin) }}{{ form_widget(form.vin) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.engineId) }}</td>
+                <td>{{ form_errors(form.engineId) }}{{ form_widget(form.engineId) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.pts) }}</td>
+                <td>{{ form_errors(form.pts) }}{{ form_widget(form.pts) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.sts) }}</td>
+                <td>{{ form_errors(form.sts) }}{{ form_widget(form.sts) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.plate) }}</td>
+                <td>{{ form_errors(form.plate) }}{{ form_widget(form.plate) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.osago) }}{{ form_errors(form.osago) }}</td>
+                <td>{{ form_widget(form.osago) }}</td>
+            </tr>
+            <tr>
+                <td>{{ form_label(form.osago_date) }}{{ form_errors(form.osago_date) }}</td>
+                <td>{{ form_widget(form.osago_date) }}</td>
+            </tr>
+            <tr>
                 <td>{{ form_label(form.year) }}{{ form_errors(form.year) }}</td>
                 <td>{{ form_widget(form.year.year)}}
                     {{ form_widget(form.year.month, { 'attr': { 'style': 'display:none' } }) }}
@@ -213,7 +241,8 @@
         <hr>
         <h2>{{ form_label(form.photos) }}</h2>{{ form_errors(form.photos) }}
         <a href="#" class="add_photo">Добавить фото</a><br />
-        <ul id="photo" data-prototype="{{ form_widget(form.photos.get('prototype')) | e }}">
+
+        <ul id="photo" data-prototype="{{ form_widget(form.photos.vars.prototype) | e }}">
             {% for photo in form.photos %}
                 <li>
                     <img src="/uploads/images/cars/thumbs/{{car.photos[loop.index-1].path}}"/>

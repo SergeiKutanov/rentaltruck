@@ -105,6 +105,10 @@ class Client
      */
     private $punctuality;
 
+    public function __toString(){
+        return $this->getLastName()." ".$this->getFirstName()." ".$this->getMiddleName()." ".$this->getPassportNumber();
+    }
+
 
     /**
      * Get id

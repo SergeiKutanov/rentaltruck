@@ -52,3 +52,13 @@ admin_client_crud:
     resource: "@SergeiKVladAuto33Bundle/Controller/ClientController.php"
     type: annotation
     prefix: /
+
+admin_rent_crud:
+    resource: "@SergeiKVladAuto33Bundle/Controller/RentController.php"
+    type: annotation
+    prefix: /
+
+admin_org_crud:
+    resource: "@SergeiKVladAuto33Bundle/Controller/OrganisationController.php"
+    type: annotation
+    prefix: /

@@ -1,0 +1,57 @@
+{% extends '::admin.html.twig' %}
+
+{% block middle_bar -%}
+    <h1>Organisation list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Inn</th>
+                <th>Bankaccount</th>
+                <th>Corraccount</th>
+                <th>Bic</th>
+                <th>Ceofirstname</th>
+                <th>Ceomiddlename</th>
+                <th>Ceolastname</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('organisation_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.address }}</td>
+                <td>{{ entity.iNN }}</td>
+                <td>{{ entity.bankAccount }}</td>
+                <td>{{ entity.corrAccount }}</td>
+                <td>{{ entity.bIC }}</td>
+                <td>{{ entity.cEOFirstName }}</td>
+                <td>{{ entity.cEOMiddleName }}</td>
+                <td>{{ entity.cEOLastName }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('organisation_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('organisation_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('organisation_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}

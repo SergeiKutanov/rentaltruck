@@ -116,6 +116,47 @@ class Car
     protected $capacity;
 
     /**
+     * @ORM\Column(name="vin", type="string", length=17, nullable=true)
+     */
+    protected $vin;
+
+    /**
+     * @ORM\Column(name="engine_id", type="string", length=15, nullable=true)
+     */
+    protected $engineId;
+
+    /**
+     * @ORM\Column(name="pts", type="string", length=15, nullable=true)
+     */
+    protected $pts;
+
+    /**
+     * @ORM\Column(name="sts", type="string", length=15, nullable=true)
+     */
+    protected $sts;
+
+    /**
+     * @ORM\Column(name="plate", type="string", length=8, nullable=true)
+     */
+    protected $plate;
+
+    /**
+     * @ORM\Column(name="osago", type="string", length=14, nullable=true)
+     */
+    protected $osago;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="osago_date", type="date", nullable=true)
+     */
+    private $osago_date;
+
+    public function __toString(){
+        return $this->getName();
+    }
+
+    /**
      * @return path to main photo
      */
     public function getMainPhotoPath()
@@ -563,5 +604,166 @@ class Car
     public function getCapacity()
     {
         return $this->capacity;
+    }
+
+    /**
+     * Set vin
+     *
+     * @param string $vin
+     * @return Car
+     */
+    public function setVin($vin)
+    {
+        $this->vin = $vin;
+    
+        return $this;
+    }
+
+    /**
+     * Get vin
+     *
+     * @return string 
+     */
+    public function getVin()
+    {
+        return $this->vin;
+    }
+
+    /**
+     * Set engineId
+     *
+     * @param string $engineId
+     * @return Car
+     */
+    public function setEngineId($engineId)
+    {
+        $this->engineId = $engineId;
+    
+        return $this;
+    }
+
+    /**
+     * Get engineId
+     *
+     * @return string 
+     */
+    public function getEngineId()
+    {
+        return $this->engineId;
+    }
+
+    /**
+     * Set pts
+     *
+     * @param string $pts
+     * @return Car
+     */
+    public function setPts($pts)
+    {
+        $this->pts = $pts;
+    
+        return $this;
+    }
+
+    /**
+     * Get pts
+     *
+     * @return string 
+     */
+    public function getPts()
+    {
+        return $this->pts;
+    }
+
+    /**
+     * Set sts
+     *
+     * @param string $sts
+     * @return Car
+     */
+    public function setSts($sts)
+    {
+        $this->sts = $sts;
+    
+        return $this;
+    }
+
+    /**
+     * Get sts
+     *
+     * @return string 
+     */
+    public function getSts()
+    {
+        return $this->sts;
+    }
+
+    /**
+     * Set plate
+     *
+     * @param string $plate
+     * @return Car
+     */
+    public function setPlate($plate)
+    {
+        $this->plate = $plate;
+    
+        return $this;
+    }
+
+    /**
+     * Get plate
+     *
+     * @return string 
+     */
+    public function getPlate()
+    {
+        return $this->plate;
+    }
+
+    /**
+     * Set osago
+     *
+     * @param string $osago
+     * @return Car
+     */
+    public function setOsago($osago)
+    {
+        $this->osago = $osago;
+    
+        return $this;
+    }
+
+    /**
+     * Get osago
+     *
+     * @return string 
+     */
+    public function getOsago()
+    {
+        return $this->osago;
+    }
+
+    /**
+     * Set osago_date
+     *
+     * @param \DateTime $osagoDate
+     * @return Car
+     */
+    public function setOsagoDate($osagoDate)
+    {
+        $this->osago_date = $osagoDate;
+    
+        return $this;
+    }
+
+    /**
+     * Get osago_date
+     *
+     * @return \DateTime 
+     */
+    public function getOsagoDate()
+    {
+        return $this->osago_date;
     }
 }

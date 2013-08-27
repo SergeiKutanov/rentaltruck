@@ -1,0 +1,57 @@
+{% extends '::admin.html.twig' %}
+
+{% block middle_bar -%}
+    <h1>Rent list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Pickupdate</th>
+                <th>Returndate</th>
+                <th>Pickupmillage</th>
+                <th>Returnmillage</th>
+                <th>Payment</th>
+                <th>Deposit</th>
+                <th>Returndeposit</th>
+                <th>Usagearea</th>
+                <th>Notes</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('rent_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{% if entity.pickUpDate %}{{ entity.pickUpDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if entity.returnDate %}{{ entity.returnDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.pickUpMillage }}</td>
+                <td>{{ entity.returnMillage }}</td>
+                <td>{{ entity.payment }}</td>
+                <td>{{ entity.deposit }}</td>
+                <td>{{ entity.returnDeposit }}</td>
+                <td>{{ entity.usageArea }}</td>
+                <td>{{ entity.notes }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('rent_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('rent_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('rent_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
