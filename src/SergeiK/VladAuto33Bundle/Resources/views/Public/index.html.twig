@@ -232,4 +232,15 @@
         </tr>
     </table>
 </div>
+{% if news | length > 0 %}
+<div class="news">
+    <h2>Новости</h2>
+    {% for new in news %}
+        <div class="news_entry">
+            <h3>{{ new.title }}</h3>
+            <p>{{ new.body | raw }}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
 {% endblock %}

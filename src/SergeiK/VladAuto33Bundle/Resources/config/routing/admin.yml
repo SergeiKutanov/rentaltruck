@@ -62,3 +62,8 @@ admin_org_crud:
     resource: "@SergeiKVladAuto33Bundle/Controller/OrganisationController.php"
     type: annotation
     prefix: /
+
+admin_news_crud:
+    resource: "@SergeiKVladAuto33Bundle/Controller/NewsController.php"
+    type: annotation
+    prefix: /

@@ -25,10 +25,17 @@ class PublicController extends Controller
             ), null, 4
         );
 
+        $news = $em->getRepository("SergeiKVladAuto33Bundle:News")->findBy(
+            array(
+                "publish" => 1
+            ), null, 4
+        );
+
         $form = $this->createForm(new BookingType(), $booking);
         return $this->render("SergeiKVladAuto33Bundle:Public:index.html.twig", array(
             'form'  => $form->createView(),
-            'cars'  => $cars
+            'cars'  => $cars,
+            'news'  => $news
         ));
     }
 

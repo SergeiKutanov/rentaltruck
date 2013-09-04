@@ -771,3 +771,14 @@ div.vk_like{
 table.records_list{
     width: 100%;
 }
+div.news{
+    border-top: 1px dotted black;
+    border-bottom: 1px dotted black;
+    background: #CCCCCC;
+    margin: 0 -5px;
+    padding: 10px;
+}
+
+div.news h3{
+    text-align: left;
+}
