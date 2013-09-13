@@ -4,58 +4,124 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
 <url>
-  <loc>http://rentaltruck.ru/</loc>
+  <loc>http://rentaltruck.ru/ru/</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://rentaltruck.ru/cars</loc>
+  <loc>http://rentaltruck.ru/en/</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://rentaltruck.ru/conditions</loc>
+  <loc>http://rentaltruck.ru/ru/withdriver</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://rentaltruck.ru/contacts</loc>
+  <loc>http://rentaltruck.ru/ru/cars</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://rentaltruck.ru/car/12</loc>
+  <loc>http://rentaltruck.ru/ru/conditions</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://rentaltruck.ru/car/13</loc>
+  <loc>http://rentaltruck.ru/ru/contacts</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://rentaltruck.ru/car/14</loc>
+  <loc>http://rentaltruck.ru/ru/car/1</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://rentaltruck.ru/car/15</loc>
+  <loc>http://rentaltruck.ru/ru/car</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://rentaltruck.ru/car/16</loc>
+  <loc>http://rentaltruck.ru/ru/car/14</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://rentaltruck.ru/car/17</loc>
+  <loc>http://rentaltruck.ru/ru/car/15</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://rentaltruck.ru/car/18</loc>
+  <loc>http://rentaltruck.ru/en/withdriver</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://rentaltruck.ru/car/19</loc>
+  <loc>http://rentaltruck.ru/en/cars</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://rentaltruck.ru/car/20</loc>
+  <loc>http://rentaltruck.ru/en/conditions</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://rentaltruck.ru/en/contacts</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://rentaltruck.ru/en/car/1</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://rentaltruck.ru/en/car</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://rentaltruck.ru/en/car/14</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://rentaltruck.ru/en/car/15</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://rentaltruck.ru/ru/car/16</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://rentaltruck.ru/ru/car/17</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://rentaltruck.ru/ru/car/18</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://rentaltruck.ru/ru/car/19</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://rentaltruck.ru/ru/car/21</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://rentaltruck.ru/ru/car/22</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://rentaltruck.ru/en/car/16</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://rentaltruck.ru/en/car/17</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://rentaltruck.ru/en/car/18</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://rentaltruck.ru/en/car/19</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://rentaltruck.ru/en/car/21</loc>
+  <changefreq>weekly</changefreq>
+</url>
+<url>
+  <loc>http://rentaltruck.ru/en/car/22</loc>
   <changefreq>weekly</changefreq>
 </url>
 </urlset>

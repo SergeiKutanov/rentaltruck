@@ -191,9 +191,9 @@ img.car_keys{
 #footer > div
 {
     float: left;
-    background: url(../images/logo_bottom.png) no-repeat;
+    background: url(../images/logo_bottom.png) 35px 0px no-repeat;
     height: 100%;
-    width: 280px;
+    width: 315px;
     margin-left: 10px;
 }
 
@@ -781,4 +781,8 @@ div.news{
 
 div.news h3{
     text-align: left;
+}
+
+div.LI{
+    float: left;
 }

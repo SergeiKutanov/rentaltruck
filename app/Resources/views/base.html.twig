@@ -129,7 +129,7 @@
                             {% if app.request.attributes.get('_route') == 'public_with_driver' %}
                                 class="selected"
                             {% endif %}
-                            ><a href="{{ path('public_with_driver') }}">{{ 'Трансфер'| trans }}</a></li>
+                            ><a href="{{ path('public_with_driver') }}">{{ 'Трансфер Владимир - Москва'| trans }}</a></li>
                     <li
                             {#{% if app.request.attributes.get('_route') == 'public_procession' %}#}
                                 {#class="selected"#}
@@ -212,7 +212,23 @@
                 <div class="page_bottom_gradient"></div>
             </div>
             <div id="footer">
-                <div><a href="{{ path('public_index') }}"></a></div>
+                <div>
+                    <div class="LI">
+                    <!--LiveInternet counter-->
+                    <script type="text/javascript">
+                        document.write("<a href='http://www.liveinternet.ru/click' "+
+                        "target=_blank><img src='//counter.yadro.ru/hit?t45.6;r"+
+                        escape(document.referrer)+((typeof(screen)=="undefined")?"":
+                        ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+                        screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+                        ";"+Math.random()+
+                        "' alt='' title='LiveInternet' "+
+                        "border='0' width='31' height='31'><\/a>")
+                    </script>
+                    <!--/LiveInternet--> 
+                    </div>
+                    <a href="{{ path('public_index') }}"></a>
+                </div>                
                 <p>{{ 'Забронировать автомобиль вы можете по телефону: ' | trans }}8(4922)37-09-99</p>
             </div>
         </div>
