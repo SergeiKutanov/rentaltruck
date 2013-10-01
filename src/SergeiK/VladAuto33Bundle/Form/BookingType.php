@@ -59,8 +59,8 @@ class BookingType extends AbstractType
                         ->orderBy('u.name', 'ASC');
                 },
                 'multiple'  => false,
-                'expanded'  => true,
-                'empty_value'   => '--Укажите автомобиль--'
+                'expanded'  => true
+                //'empty_value'   => '--Укажите автомобиль--'
         ))
         ;
     }

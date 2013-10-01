@@ -119,7 +119,7 @@ class PublicController extends Controller
     {
         $booking = new Booking();
         $form = $this->createForm(new BookingType(), $booking);
-        $form->bindRequest($this->getRequest());
+        $form->bind($this->getRequest());
 
         if(!$form->isValid())
         {
