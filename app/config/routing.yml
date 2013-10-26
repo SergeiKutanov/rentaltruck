@@ -1,3 +1,8 @@
+sergei_k_vlad_auto33_annotation:
+    resource: "@SergeiKVladAuto33Bundle/Controller/"
+    type: annotation
+    prefix: /
+
 sergei_k_vlad_auto33_public:
     resource: "@SergeiKVladAuto33Bundle/Resources/config/routing/public.yml"
     prefix:   /{_locale}/
