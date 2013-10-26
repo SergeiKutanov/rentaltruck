@@ -21,7 +21,12 @@ class VKController extends Controller
             $code = $request->query->get('code');
             $redirect_url = $this->generateUrl('vk_request', array(), true);
             $url = "https://oauth.vk.com/access_token?client_id=".$this::VK_APP_ID."&client_secret=".$this::VK_APP_SECRET."&code=".$code."&redirect_uri=".$redirect_url."&";
-            die(var_dump($url));
+
+            $resp = file_get_contents($url);
+            $data = json_decode($resp, true);
+            var_dump($data);
+            $vk_access_token = $data['access_token'];
+            $vk_uid =  $data['user_id'];
         }
     }
 
