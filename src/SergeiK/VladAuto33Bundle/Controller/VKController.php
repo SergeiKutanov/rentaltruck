@@ -27,7 +27,7 @@ class VKController extends Controller
             $vk_access_token = $data['access_token'];
             $vk_uid =  $data['user_id'];
 
-            $res = file_get_contents("https://api.vk.com/method/users.get?uids=".$vk_uid."&access_token=".$vk_access_token."&fields=uid,first_name,last_name,nickname,photo");
+            $res = file_get_contents("https://api.vk.com/method/users.get?uids=".$vk_uid."&access_token=".$vk_access_token."&fields=uid,first_name,last_name,email");
             $data = json_decode($res, true);
             var_dump($data);
             $user_info = $data['response'][0];
