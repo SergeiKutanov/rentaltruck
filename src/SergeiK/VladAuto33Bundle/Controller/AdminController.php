@@ -27,6 +27,7 @@ class AdminController extends Controller
 
     public function bookingArchiveAction()
     {
+        //dummy strings
         $rp = $this->getDoctrine()->getEntityManager()->getRepository('SergeiKVladAuto33Bundle:Booking');
         $query = $rp->createQueryBuilder('b')
             ->orderBy('b.start_date', 'ASC')
